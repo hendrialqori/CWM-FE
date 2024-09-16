@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FCF3EC;
+  --cwm-orange: #F29A74;
+  --cwm-blue: #6E9FB8;
+  --cwm-yellow: #FAB772;
+  --cwm-green: #ADC482;
+  --space-between-section: 7.5rem; /*120 px*/
+}
+
+@layer components {
+  .landing-page-container {
+    @apply w-[calc(100%_-_20px)] max-w-[1200px] mx-auto
+  }
+
+  .landing-page-container2nd {
+    @apply w-[calc(100%_-_20px)] max-w-[986px] mx-auto
+  }
+
+  .center-flex {
+    @apply flex justify-center items-center
+  }
+
+}
