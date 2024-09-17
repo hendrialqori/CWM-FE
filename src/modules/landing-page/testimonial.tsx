@@ -45,7 +45,7 @@ function Testimony({ theme, image, message, person }: TestimonyProps) {
 
 function Testimonial() {
     return (
-        <section className="min-h-screen mt-space_between_section">
+        <section className="mt-space_between_section" aria-label="testimonial">
             <div className="landing-page-container2nd space-y-20 py-14">
                 <div className="center-flex flex-col" aria-label="title">
                     <h2 className="font-fredoka font-bold text-[2rem]">Telah dipercayai oleh beberapa orang</h2>

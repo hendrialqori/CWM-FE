@@ -7,6 +7,10 @@ export default function Home() {
         <LP.Hero />
         <LP.UniqueSellingPoint />
         <LP.Testimonial />
+        <LP.ProductKnowledge />
+        <LP.ProductOffer />
+        <LP.FAQ />
+        <LP.Footer />
     </main>
   )
 }

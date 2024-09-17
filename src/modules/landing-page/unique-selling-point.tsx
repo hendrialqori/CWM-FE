@@ -3,7 +3,7 @@ import yellow_round_shape from "#/assets/svg/yellow-round-shape.svg"
 
 function UniqueSellingPoint() {
     return (
-        <section className="py-24">
+        <section className="py-24" aria-label="unique selling point">
             <div className="landing-page-container2nd">
                 <Image
                     src={yellow_round_shape}
