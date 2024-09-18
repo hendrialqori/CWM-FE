@@ -13,11 +13,11 @@
 
 @layer components {
   .landing-page-container {
-    @apply w-[calc(100%_-_20px)] max-w-[1200px] mx-auto
+    @apply w-[calc(100%_-_20px)] md:w-[calc(100%_-_50px)] max-w-[1200px] mx-auto
   }
 
   .landing-page-container2nd {
-    @apply w-[calc(100%_-_20px)] max-w-[986px] mx-auto
+    @apply w-[calc(100%_-_20px)] md:w-[calc(100%_-_50px)] max-w-[986px] mx-auto
   }
 
   .center-flex {

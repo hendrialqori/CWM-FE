@@ -3,6 +3,7 @@
 import React from "react"
 import Image from "next/image"
 import { IoIosArrowForward } from "react-icons/io";
+import blue_circle_shape from "#/assets/svg/blue-circle-shape.svg"
 
 function Dropdown({ ask, answer }: { ask: string; answer: string }) {
     let [isShow, setShow] = React.useState(false)
@@ -29,9 +30,22 @@ function Dropdown({ ask, answer }: { ask: string; answer: string }) {
     )
 }
 
+function BlueCircleShape() {
+    return (
+        <Image
+            src={blue_circle_shape}
+            className="size-[23rem] absolute bottom-0 -left-20"
+            width={288}
+            height={288}
+            alt="blue_circle_shape"
+        />
+    )
+}
+
 function FAQ() {
     return (
-        <section className="min-h-screen py-24">
+        <section className="py-24 relative overflow-hidden">
+            <BlueCircleShape />
             <div className="landing-page-container2nd grid grid-cols-2 gap-14">
                 <div className="flex flex-col items-center">
                     <div className="text-center">

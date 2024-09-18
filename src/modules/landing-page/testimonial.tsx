@@ -1,5 +1,8 @@
-import Image from "next/image"
 import React from "react";
+import Image from "next/image"
+import green_shape from "#/assets/svg/green-shape.svg"
+import blue_shape from "#/assets/svg/blue-shape.svg"
+import pink_circle_shape from "#/assets/svg/pink-circle-shape.svg"
 
 type TestimonyProps = {
     theme: "orange" | "blue" | "green"
@@ -43,10 +46,50 @@ function Testimony({ theme, image, message, person }: TestimonyProps) {
 
 }
 
+function GreenShape() {
+    return (
+        <Image
+            src={green_shape}
+            className="size-28 absolute top-0 -left-20"
+            width={112}
+            height={112}
+            alt="green-shape"
+        />
+    )
+}
+
+function BlueShape() {
+    return (
+        <Image
+            src={blue_shape}
+            className="size-28 absolute -top-20 -right-20"
+            width={112}
+            height={112}
+            alt="blue-shape"
+        />
+    )
+}
+
+function PinkCircleShape() {
+    return (
+        <Image
+            src={pink_circle_shape}
+            className="size-28 absolute -top-20 -left-20"
+            width={112}
+            height={112}
+            alt="pink-circle-shape"
+        />
+    )
+}
+
 function Testimonial() {
     return (
         <section className="mt-space_between_section" aria-label="testimonial">
-            <div className="landing-page-container2nd space-y-20 py-14">
+            <div className="landing-page-container2nd relative">
+                <GreenShape />
+                <BlueShape />
+            </div>
+            <div className="landing-page-container2nd space-y-20 py-14 relative">
                 <div className="center-flex flex-col" aria-label="title">
                     <h2 className="font-fredoka font-bold text-[2rem]">Telah dipercayai oleh beberapa orang</h2>
                     <p className="font-mulish text-xl font-medium text-[#5D5D5D]">lihat pengalaman yang mereka dapatkan</p>
@@ -58,19 +101,22 @@ function Testimonial() {
                         message="Dikira orang lokal gara-gara lancar banget! Dapet diskon ​khusus local di mana-mana!"
                         person={{ name: "Rini", age: 24 }}
                     />
-                      <Testimony
+                    <Testimony
                         theme="blue"
                         image="/image/cewek-random.jpg"
                         message="Bisa nabung 50% budget karena gak perlu guide! Shopping ​jadi lebih banyak, hehe."
                         person={{ name: "Dinda", age: 28 }}
                     />
-                      <Testimony
+                    <Testimony
                         theme="green"
                         image="/image/cewek-random.jpg"
                         message="Dari takut ke China jadi berani solo travel! Malah extend 2 ​minggu!"
                         person={{ name: "Sari", age: 25 }}
                     />
                 </div>
+            </div>
+            <div className="landing-page-container2nd relative">
+                <PinkCircleShape />
             </div>
         </section>
     )

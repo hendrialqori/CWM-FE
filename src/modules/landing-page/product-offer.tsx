@@ -1,7 +1,11 @@
+import Image from "next/image";
 import { BsCameraVideo } from "react-icons/bs"
 import { LiaAssistiveListeningSystemsSolid } from "react-icons/lia";
 import { MdOutlineQuiz } from "react-icons/md";
 import { FiShoppingCart } from "react-icons/fi";
+import rocket_shape from "#/assets/svg/rocket-shape.svg"
+import orange_circle_shape from "#/assets/svg/orange-circle-shape.svg"
+import green_circle_shape from "#/assets/svg/green-circle-shape.svg"
 
 
 function BlurEffectBackground() {
@@ -13,10 +17,48 @@ function BlurEffectBackground() {
     )
 }
 
+function RocketShape() {
+    return (
+        <Image
+            src={rocket_shape}
+            className="size-28 absolute -top-20 left-0"
+            width={112}
+            height={112}
+            alt="rocket_shape"
+        />
+    )
+}
+
+function OrangeCircleShape() {
+    return (
+        <Image
+            src={orange_circle_shape}
+            className="size-28 absolute bottom-10 left-0"
+            width={112}
+            height={112}
+            alt="orange_circle_shape"
+        />
+    )
+}
+
+function GreenCircleShape() {
+    return (
+        <Image
+            src={green_circle_shape}
+            className="size-[18rem] absolute bottom-0 -right-2"
+            width={288}
+            height={288}
+            alt="green_circle_shape"
+        />
+    )
+}
+
+
 function ProductOffer() {
     return (
-        <section className="bg-[#FEF9F6] py-24 mt-space_between_section" aria-label="product-offer">
-            <div className="landing-page-container2nd space-y-16">
+        <section className="bg-[#FEF9F6] py-24 mt-space_between_section relative overflow-hidden" aria-label="product-offer">
+            <div className="relative landing-page-container space-y-16">
+                <RocketShape />
                 <div className="center-flex flex-col" aria-label="title">
                     <h2 className="font-fredoka font-bold text-[2rem]">Apa yang bakal kamu dapatkan jika membeli produk ini ?</h2>
                     <p className="font-mulish text-xl font-medium text-[#5D5D5D]">Banyak benefit yang bakal kamu dapatkan</p>
@@ -60,13 +102,15 @@ function ProductOffer() {
                         <p className="font-mulish font-semibold text-[#5D5D5D]">Harga spesial hari ini!</p>
                         <h3 className="font-fredoka text-6xl font-bold">Rp. 149.000,-</h3>
                     </div>
-                    <button 
+                    <button
                         className="relative w-max mx-auto bg-black rounded-lg center-flex gap-2 text-white px-6 py-2 z-[2]">
                         <p className="text-xl font-mulish font-medium">Beli sekarang</p>
                         <FiShoppingCart className="text-xl" />
                     </button>
                 </div>
+                <OrangeCircleShape />
             </div>
+            <GreenCircleShape />
         </section>
     )
 }

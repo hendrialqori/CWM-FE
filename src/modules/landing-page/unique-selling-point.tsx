@@ -1,17 +1,23 @@
 import Image from "next/image"
 import yellow_round_shape from "#/assets/svg/yellow-round-shape.svg"
 
+function YellowRoundShape() {
+    return (
+        <Image
+            src={yellow_round_shape}
+            width={135}
+            height={135}
+            className="size-32 rounded-full"
+            alt="yellow-round-shape"
+        />
+    )
+}
+
 function UniqueSellingPoint() {
     return (
         <section className="py-24" aria-label="unique selling point">
             <div className="landing-page-container2nd">
-                <Image
-                    src={yellow_round_shape}
-                    width={135}
-                    height={135}
-                    className="size-32 rounded-full"
-                    alt="yellow-round-shape"
-                />
+                <YellowRoundShape />
             </div>
             <div className="landing-page-container2nd grid grid-cols-8 grid-rows-2 gap-5">
                 <h2 className="font-bold text-3xl font-fredoka col-span-3 center-flex">

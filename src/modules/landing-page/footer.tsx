@@ -1,9 +1,10 @@
+import React from "react";
 import Image from "next/image"
 import { FiShoppingCart } from "react-icons/fi"
 import { LuInstagram } from "react-icons/lu";
 import { FaTiktok } from "react-icons/fa6";
 import china_flag from "#/assets/svg/china-flag.svg"
-import React from "react";
+import green_blur_circle_shape from "#/assets/svg/green-blur-circle-shape.svg"
 
 function Credits() {
     return (
@@ -13,10 +14,23 @@ function Credits() {
     )
 }
 
+function GreenBlurCircleShape() {
+    return (
+        <Image
+            src={green_blur_circle_shape}
+            className="size-28 absolute bottom-10 right-[30%]"
+            width={288}
+            height={288}
+            alt="green_blur_circle_shape"
+        />
+    )
+}
+
 function Footer() {
     return (
         <React.Fragment>
-            <footer className="landing-page-container flex justify-between items-center pt-24 pb-48">
+            <footer className="landing-page-container flex justify-between items-center pt-24 pb-48 relative">
+                <GreenBlurCircleShape />
                 <div className="w-4/12 space-y-5" aria-label="left-side">
                     <h2 className="font-fredoka font-bold text-3xl leading-[150%]">BEST DEAL Beli sekarang ​dan dapatkan GRATIS ​update konten selamanya !</h2>
                     <button
