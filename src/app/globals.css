@@ -8,7 +8,8 @@
   --cwm-blue: #6E9FB8;
   --cwm-yellow: #FAB772;
   --cwm-green: #ADC482;
-  --space-between-section: 7.5rem; /*120 px*/
+  --space-between-section: 7.5rem;
+  /*120 px*/
 }
 
 @layer components {
@@ -24,4 +25,24 @@
     @apply flex justify-center items-center
   }
 
+}
+
+
+#hero-custom-text::before {
+  content: '';
+  background-image: url('/image/circle-star.png');
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.2rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width:425px) {
+  #hero-custom-text::before {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.3rem;
+  }
 }

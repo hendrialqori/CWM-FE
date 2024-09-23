@@ -91,7 +91,7 @@ function Testimonial() {
             </div>
             <div className="landing-page-container2nd space-y-20 py-14 relative">
                 <div className="center-flex flex-col" aria-label="title">
-                    <h2 className="font-fredoka font-bold text-[2rem]">Telah dipercayai oleh beberapa orang</h2>
+                    <h2 className="font-fredoka font-bold text-[2rem]">Apa kata Mereka?</h2>
                     <p className="font-mulish text-xl font-medium text-[#5D5D5D]">lihat pengalaman yang mereka dapatkan</p>
                 </div>
                 <div className="flex flex-wrap justify-center gap-5">

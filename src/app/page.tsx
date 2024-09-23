@@ -6,11 +6,11 @@ export default function Home() {
     <main className="bg-background">
         <LP.Hero />
         <LP.UniqueSellingPoint />
-        <LP.Testimonial />
-        <LP.ProductKnowledge />
-        <LP.ProductOffer />
-        <LP.FAQ />
-        <LP.Footer />
+        {/* <LP.Testimonial /> */}
+        {/* <LP.ProductKnowledge /> */}
+        {/* <LP.ProductOffer /> */}
+        {/* <LP.FAQ /> */}
+        {/* <LP.Footer /> */}
     </main>
   )
 }

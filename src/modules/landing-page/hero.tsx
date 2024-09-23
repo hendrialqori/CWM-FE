@@ -1,6 +1,5 @@
 import Image from "next/image";
 import china_flag from "#/assets/svg/china-flag.svg"
-import circle_star from "#/assets/svg/circle-star.svg"
 import { MdOutlineArrowForward } from "react-icons/md";
 import * as Utils from "#/lib/utils"
 import { HeroVideoButton } from "./hero-video-button";
@@ -50,19 +49,16 @@ function Hero() {
                 <div className="relative space-y-10 mt-0 xl:mt-20 z-[2] mx-auto xl:mx-[0] overflow-hidden" aria-label="left-side">
                     <BlurEffectBackground />
                     <div className="relative space-y-6 z-[2]" aria-label="tagline & descriptions">
-                        {/* <div className="bg-white w-max rounded-full px-4 py-1" aria-label="badge">
-                            <p className="text-[#F07B48]">#1 E-book & Video Mandarin untuk tinggal di China</p>
-                        </div> */}
+                        <div className="bg-white w-full md:w-max rounded-full px-4 py-1" aria-label="badge">
+                            <p className="text-[#F07B48] text-xs text-center md:text-left md:text-base lg:text-xl">#1 Practical guide book survive, tinggal dan liburan di China</p>
+                        </div>
                         <div className="space-y-1">
-                            <h1 className="font-fredoka font-bold text-center md:text-left text-2xl md:text-5xl">Bongkar Cara Survive di</h1>
-                            <div className="center-flex justify-center xl:justify-start gap-x-2">
-                                <Image
-                                    src={circle_star} width={44} height={44} alt="circle_star" className="size-5 md:size-11"
-                                />
-                                <h1 className="font-fredoka font-bold text-2xl md:text-5xl">
-                                    <span className="text-[#F1936B]">China</span> Tanpa Takut
-                                </h1>
-                            </div>
+                            <h1 className="font-fredoka font-bold text-center md:text-left text-2xl md:text-4xl lg:text-5xl !leading-[120%]">
+                                Siap PD ngobrol
+                                <span id="hero-custom-text" className="relative text-[#F1936B] px-1 md:px-3">
+                                    Mandarin?</span>
+                                guide book conversation practical yg biasa digunakan sehari-hari
+                            </h1>
                         </div>
                         <p className="font-mulish font-light md:font-medium text-xs md:text-base max-w-lg text-center md:text-left">
                             Akses materi belajar yang komprehensif untuk menguasai bahasa Mandarin dan memahami budaya China.

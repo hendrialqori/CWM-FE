@@ -66,7 +66,7 @@ function ProductKnowledge() {
             <StarShape />
             <div className="w-5/12 space-y-12" aria-label="product knowledge description">
                 <div className="text-center space-y-2">
-                    <h2 className="font-fredoka font-bold text-[2rem] leading-[2.25rem]">3 Alasan kenapa e-book ini wajib kamu miliki</h2>
+                    <h2 className="font-fredoka font-bold text-[2rem] leading-[2.25rem]">What will you get ?</h2>
                     <p className="font-mulish text-xl font-medium text-[#5D5D5D]">Skill yang bisa buat kamu menjadi makin percaya diri</p>
                 </div>
                 <Point
