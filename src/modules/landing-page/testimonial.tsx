@@ -3,43 +3,38 @@ import Image from "next/image"
 import green_shape from "#/assets/svg/green-shape.svg"
 import blue_shape from "#/assets/svg/blue-shape.svg"
 import pink_circle_shape from "#/assets/svg/pink-circle-shape.svg"
+import { Testimony as TTestimony } from "#/@type";
+import { testimonial } from "#/constants";
 
-type TestimonyProps = {
-    theme: "orange" | "blue" | "green"
-    image: string;
-    message: string;
-    person: { name: string, age: number }
+type TestimonyProps = TTestimony & { number: number }
 
+function colorPick(number: number) {
+    if (number % 3 === 0) return "bg-[#ADC482]"
+    else if (number % 2 === 0) return "bg-[#6E9FB8]"
+    else return "bg-[#F07B48]"
 }
 
-function Testimony({ theme, image, message, person }: TestimonyProps) {
-
-    const themes = {
-        orange: "bg-[#F07B48]",
-        blue: "bg-[#6E9FB8]",
-        green: "bg-[#ADC482]"
-    }
-
-    const selectedTheme = themes[theme as keyof typeof themes]
-
+function Testimony({ number, image, message, person }: TestimonyProps) {
+    const theme = colorPick(number)
     return (
         <figure
-            className={`w-[48%] rounded-[30px] relative overflow-hidden
-             ${selectedTheme}`} style={{ "--tw-bg-opacity": "0.15" } as React.CSSProperties}
+            className={`w-full md:w-[48%] xl:w-[30%] rounded-[30px] relative overflow-hidden px-8 py-6 space-y-3 ${theme}`} style={{ "--tw-bg-opacity": "0.15" } as React.CSSProperties}
         >
-            <Image
-                src={image}
-                alt="testimony-image"
-                width={144}
-                height={144}
-                className="size-32 rounded-full object-cover absolute -top-5 -right-5"
-            />
-            <figcaption className="space-y-3 flex flex-col m-14">
-                <div className={`center-flex size-8 rounded-full ${selectedTheme} text-4xl text-white`}>
-                    <p className="translate-y-2 font-mulish">“</p>
+            <div className="flex justify-between items-end">
+                <Image
+                    src={image}
+                    alt="testimony-image"
+                    width={40}
+                    height={40}
+                    className="size-10 rounded-full object-cover"
+                />
+                <div className={`center-flex size-6 rounded-full ${theme} text-xl text-white`}>
+                    <p className="translate-y-1 font-mulish">“</p>
                 </div>
-                <p className="font-mulish text-xl font-semibold">{message}</p>
-                <p className="font-mulish text-sm font-semibold text-gray-600 ml-auto mr-0">{person.name}, {person.age} tahun</p>
+            </div>
+            <figcaption className="space-y-3 flex flex-col">
+                <p className="font-mulish text-sm font-semibold">{message}</p>
+                <p className="font-mulish text-xs font-semibold ml-auto mr-0">{person.name}, {person.age} tahun - {person.job}</p>
             </figcaption>
         </figure>
     )
@@ -50,7 +45,7 @@ function GreenShape() {
     return (
         <Image
             src={green_shape}
-            className="size-28 absolute top-0 -left-20"
+            className="size-10 md:size-20 lg:size-28 absolute -top-3 md:top-0 -left-0 xl:-left-20"
             width={112}
             height={112}
             alt="green-shape"
@@ -62,7 +57,7 @@ function BlueShape() {
     return (
         <Image
             src={blue_shape}
-            className="size-28 absolute -top-20 -right-20"
+            className="size-10 md:size-20 lg:size-28 absolute -top-10 md:-top-20 -right-0 xl:-right-20"
             width={112}
             height={112}
             alt="blue-shape"
@@ -74,7 +69,7 @@ function PinkCircleShape() {
     return (
         <Image
             src={pink_circle_shape}
-            className="size-28 absolute -top-20 -left-20"
+            className="size-10 md:size-20 lg:size-28 absolute -top-4 md:-top-20 -left-0 xl:-left-20"
             width={112}
             height={112}
             alt="pink-circle-shape"
@@ -84,35 +79,28 @@ function PinkCircleShape() {
 
 function Testimonial() {
     return (
-        <section className="mt-space_between_section" aria-label="testimonial">
+        <section
+            className="mt-space_between_section_sm md:mt-space_between_section_md xl:mt-space_between_section"
+            aria-label="testimonial">
             <div className="landing-page-container2nd relative">
                 <GreenShape />
                 <BlueShape />
             </div>
-            <div className="landing-page-container2nd space-y-20 py-14 relative">
+            <div className="landing-page-container2nd space-y-10 md:space-y-20 py-7 md:py-14 relative">
                 <div className="center-flex flex-col" aria-label="title">
-                    <h2 className="font-fredoka font-bold text-[2rem]">Apa kata Mereka?</h2>
-                    <p className="font-mulish text-xl font-medium text-[#5D5D5D]">lihat pengalaman yang mereka dapatkan</p>
+                    <h2 className="font-fredoka font-bold text-xl md:text-[2rem]">Apa kata Mereka?</h2>
+                    <p className="font-mulish text-sm md:text-xl font-medium text-[#5D5D5D]">lihat pengalaman yang mereka dapatkan</p>
                 </div>
-                <div className="flex flex-wrap justify-center gap-5">
-                    <Testimony
-                        theme="orange"
-                        image="/image/cewek-random.jpg"
-                        message="Dikira orang lokal gara-gara lancar banget! Dapet diskon ​khusus local di mana-mana!"
-                        person={{ name: "Rini", age: 24 }}
-                    />
-                    <Testimony
-                        theme="blue"
-                        image="/image/cewek-random.jpg"
-                        message="Bisa nabung 50% budget karena gak perlu guide! Shopping ​jadi lebih banyak, hehe."
-                        person={{ name: "Dinda", age: 28 }}
-                    />
-                    <Testimony
-                        theme="green"
-                        image="/image/cewek-random.jpg"
-                        message="Dari takut ke China jadi berani solo travel! Malah extend 2 ​minggu!"
-                        person={{ name: "Sari", age: 25 }}
-                    />
+                <div className="flex justify-center flex-wrap gap-5">
+                    {testimonial.map((testimony, i) => (
+                        <Testimony
+                            key={i}
+                            number={i + 1}
+                            image={testimony.image}
+                            message={testimony.message}
+                            person={testimony.person}
+                        />
+                    ))}
                 </div>
             </div>
             <div className="landing-page-container2nd relative">

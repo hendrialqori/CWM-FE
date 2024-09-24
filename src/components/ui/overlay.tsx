@@ -61,7 +61,7 @@ export default function Overlay({ isOpen, onClose, children }: OverlayProps) {
             window.removeEventListener("keydown",
                 handleEsc as unknown as EventListener)
         }
-    }, [])
+    }, [onClose])
 
     if (!isOpen) return null
 

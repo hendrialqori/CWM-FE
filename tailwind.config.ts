@@ -18,7 +18,9 @@ const config: Config = {
         mulish: ["var(--font-mulish)"]
       },
       spacing: {
-        space_between_section: "var(--space-between-section)"
+        space_between_section: "var(--space-between-section)",
+        space_between_section_md: "var(--space-between-section_md)",
+        space_between_section_sm: "var(--space-between-section_sm)"
       },
     },
   },

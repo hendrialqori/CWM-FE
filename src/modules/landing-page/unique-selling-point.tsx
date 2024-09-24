@@ -7,7 +7,7 @@ function YellowRoundShape() {
             src={yellow_round_shape}
             width={135}
             height={135}
-            className="size-20 md:size-32 rounded-full"
+            className="size-20 md:size-24 lg:size-32 rounded-full"
             alt="yellow-round-shape"
         />
     )
@@ -15,7 +15,7 @@ function YellowRoundShape() {
 
 function UniqueSellingPoint() {
     return (
-        <section className="py-20 md:py-24" aria-label="unique selling point">
+        <section className="py-12 md:py-24" aria-label="unique selling point">
             <div className="landing-page-container2nd">
                 <YellowRoundShape />
             </div>

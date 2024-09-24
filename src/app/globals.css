@@ -8,8 +8,9 @@
   --cwm-blue: #6E9FB8;
   --cwm-yellow: #FAB772;
   --cwm-green: #ADC482;
-  --space-between-section: 7.5rem;
-  /*120 px*/
+  --space-between-section: 7.5rem;   /*120 px*/
+  --space-between-section_md: 5.7rem ; /*90 px*/
+  --space-between-section_sm: 3.75rem; /*60 px*/
 }
 
 @layer components {

@@ -1,37 +1,17 @@
 import Image from "next/image";
 import star_shape from "#/assets/svg/star-shape.svg"
 import dollar_shape from "#/assets/svg/dollar-shape.svg"
-
-type PointProps = {
-    number: number;
-    title: string;
-    description: string
-}
+import { LuCheck } from "react-icons/lu";
+import { productKnowledgePoints } from "#/constants";
 
 
-function Point({ number, title, description }: PointProps) {
-
-    function theme() {
-        switch (number) {
-            case 1:
-                return "bg-[#F07B48]"
-            case 2:
-                return "bg-[#6E9FB8]"
-            case 3:
-                return "bg-[#ADC482]"
-        }
-    }
-
+function Point({ description }: { description: string }) {
     return (
-        <div className="flex gap-5">
-            <div className={`center-flex size-11 rounded-xl ${theme()}`}>
-                <span className="font-semibold text-xl text-white">{number}</span>
+        <div className="flex justify-start items-start gap-4">
+            <div className="bg-cwm_green rounded-[0.25rem] p-[2px]">
+                <LuCheck className="text-white text-base md:text-lg" />
             </div>
-
-            <div className="w-10/12 space-y-3">
-                <h3 className="font-fredoka text-xl font-bold">{title}</h3>
-                <p className="font-mulish font-medium text-[#5D5D5D]">{description}</p>
-            </div>
+            <p className="text-base md:text-lg -translate-y-1 font-medium">{description}</p>
         </div>
     )
 }
@@ -40,7 +20,7 @@ function StarShape() {
     return (
         <Image
             src={star_shape}
-            className="size-28 absolute -top-20 right-1/4"
+            className="size-10 md:size-20 lg:size-28 absolute -top-2 md:-top-20 right-10 md:right-1/4"
             width={112}
             height={112}
             alt="star-shape"
@@ -52,7 +32,7 @@ function DollarShape() {
     return (
         <Image
             src={dollar_shape}
-            className="size-28 absolute bottom-0 right-40"
+            className="size-10 md:size-20 lg:size-28 absolute -bottom-10 md:bottom-0 right-20 md:right-40"
             width={112}
             height={112}
             alt="dollar-shape"
@@ -62,30 +42,21 @@ function DollarShape() {
 
 function ProductKnowledge() {
     return (
-        <section className="landing-page-container flex py-24 mt-space_between_section relative">
+        <section className="landing-page-container relative flex flex-col lg:flex-row gap-8 py-12 md:py-24 t-space_between_section_sm md:mt-space_between_section_md xl:mt-space_between_section">
             <StarShape />
-            <div className="w-5/12 space-y-12" aria-label="product knowledge description">
-                <div className="text-center space-y-2">
-                    <h2 className="font-fredoka font-bold text-[2rem] leading-[2.25rem]">What will you get ?</h2>
-                    <p className="font-mulish text-xl font-medium text-[#5D5D5D]">Skill yang bisa buat kamu menjadi makin percaya diri</p>
+            <div className="w-full lg:w-5/12 space-y-10 md:space-y-12" aria-label="product knowledge description">
+                <div className="text-center space-y-0 md:space-y-2">
+                    <h2 className="font-fredoka font-bold text-xl md:text-[2rem] leading-[2.25rem]">What will you get ?</h2>
+                    <p className="font-mulish text-sm md:text-xl font-medium text-[#5D5D5D]">Skill yang bisa buat kamu menjadi makin percaya diri</p>
                 </div>
-                <Point
-                    number={1}
-                    title="Rahasia Check-in Hotel Secepat Kilat"
-                    description="Trick “Magic words” buat upgrade kamar gratis dan cara dapat early check-in tanpa bayar tambahan."
-                />
-                <Point
-                    number={2}
-                    title="Rahasia Check-in di Bandara tanpa antri"
-                    description="Rahasia pilih counter check-in tercepat serta cara bypass antrian panjang dengan kosakata ajaib"
-                />
-                <Point
-                    number={3}
-                    title="Cara ajaib pesan makanan enak tanpa bisa bahasa China"
-                    description="10 Frasa ajaib buat pesan makanan favoritmu serta panduan lengkap baca menu Chinese + rekomendasi hidangan top!"
-                />
+                {productKnowledgePoints.map((point, i) => (
+                    <Point
+                        key={i}
+                        description={point}
+                    />
+                ))}
             </div>
-            <div className="w-7/12 center-flex flex-col" aria-label="image">
+            <div className="w-full lg:w-7/12 center-flex flex-col" aria-label="image">
                 <Image
                     src="/image/cover-ebook.png"
                     width={674}
@@ -94,9 +65,9 @@ function ProductKnowledge() {
 
                 />
                 <div className="flex gap-3">
-                    <div className="h-1 w-14 bg-cwm_orange" />
-                    <div className="h-1 w-14 bg-cwm_blue" />
-                    <div className="h-1 w-14 bg-cwm_green" />
+                    <div className="h-1 w-7 md:w-14 bg-cwm_orange" />
+                    <div className="h-1 w-7 md:w-14 bg-cwm_blue" />
+                    <div className="h-1 w-7 md:w-14 bg-cwm_green" />
                 </div>
             </div>
             <DollarShape />

@@ -22,7 +22,7 @@ function RocketShape() {
     return (
         <Image
             src={rocket_shape}
-            className="size-28 absolute -top-20 left-0"
+            className="size-10 md:size-20 lg:size-28 absolute -top-20 left-0"
             width={112}
             height={112}
             alt="rocket_shape"
@@ -34,7 +34,7 @@ function OrangeCircleShape() {
     return (
         <Image
             src={orange_circle_shape}
-            className="size-28 absolute -bottom-20 left-0"
+            className="size-10 md:size-20 lg:size-28 absolute -bottom-16 md:-bottom-20 left-0"
             width={112}
             height={112}
             alt="orange_circle_shape"
@@ -68,38 +68,38 @@ function AhaflOrangeShape() {
 
 function ProductOffer() {
     return (
-        <section className="bg-[#FEF9F6] py-24 mt-space_between_section relative overflow-hidden" aria-label="product-offer">
-            <div className="relative landing-page-container space-y-20">
+        <section className="bg-[#FEF9F6] relative overflow-hidden py-20 md:py-24 mt-space_between_section_sm md:mt-space_between_section_md xl:mt-space_between_section" aria-label="product-offer">
+            <div className="relative landing-page-container space-y-10 md:space-y-20">
                 <RocketShape />
-                <div className="center-flex flex-col" aria-label="title">
-                    <h2 className="font-fredoka font-bold text-[2rem]">Alasan Guidebook Ini One of a Kind</h2>
-                    <p className="font-mulish text-xl font-medium text-[#5D5D5D]">Banyak benefit yang bakal kamu dapatkan</p>
+                <div className="center-flex flex-col space-y-0 md:space-y-2" aria-label="title">
+                    <h2 className="font-fredoka font-bold text-xl md:text-[2rem] text-center md:text-left">Alasan Guidebook Ini One of a Kind</h2>
+                    <p className="font-mulish text-sm md:text-xl font-medium text-[#5D5D5D]">Banyak benefit yang bakal kamu dapatkan</p>
                 </div>
-                <div className="grid grid-cols-3 place-items-start gap-8" aria-label="offers">
+                <div className="grid grid-cols-1 lg:grid-cols-3 place-items-start gap-8" aria-label="offers">
                     <div className="center-flex flex-col space-y-6" aria-label="offer">
                         <div className="center-flex flex-col">
-                            <BsCameraVideo className="text-5xl text-[#F07B48]" />
-                            <h3 className="font-fredoka text-2xl font-bold text-[#F07B48]">Guiding Video</h3>
+                            <BsCameraVideo className="text-4xl md:text-5xl text-[#F07B48]" />
+                            <h3 className="font-fredoka text-lg md:text-2xl font-bold text-[#F07B48]">Guiding Video</h3>
                         </div>
-                        <p className="text-center font-medium text-[#3A3A3A] font-mulish">
+                        <p className="text-center text-sm md:text-base font-medium text-[#3A3A3A] font-mulish">
                             Tidak cuman gambar dan tulisan, di setiap bab Meggie sertakan video yg akan membantu kamu untuk lebih memahami cara baca, ejaan, dan nada bahasa mandarin
                         </p>
                     </div>
                     <div className="center-flex flex-col space-y-6" aria-label="offer">
                         <div className="center-flex flex-col">
-                            <LiaAssistiveListeningSystemsSolid className="text-5xl text-cwm_blue" />
-                            <h3 className="font-fredoka text-2xl font-bold text-cwm_blue">Listening Pratice</h3>
+                            <LiaAssistiveListeningSystemsSolid className="text-4xl md:text-5xl text-cwm_blue" />
+                            <h3 className="font-fredoka text-lg md:text-2xl font-bold text-cwm_blue">Listening Pratice</h3>
                         </div>
-                        <p className="text-center font-medium text-[#3A3A3A] font-mulish">
+                        <p className="text-center text-sm md:text-base font-medium text-[#3A3A3A] font-mulish">
                             Tidak cuman membaca dan menonton, Meggie juga akan kasih km latihan mendengarkan. Dalam belajar bahasa penting banget untuk latihan mendengarkan supaya km makin terbiasa
                         </p>
                     </div>
                     <div className="center-flex flex-col space-y-6" aria-label="offer">
                         <div className="center-flex flex-col">
-                            <MdOutlineQuiz className="text-5xl text-cwm_green" />
-                            <h3 className="font-fredoka text-2xl font-bold text-cwm_green">Interactive Quiz</h3>
+                            <MdOutlineQuiz className="text-4xl md:text-5xl text-cwm_green" />
+                            <h3 className="font-fredoka text-lg md:text-2xl font-bold text-cwm_green">Interactive Quiz</h3>
                         </div>
-                        <p className="text-center font-medium text-[#3A3A3A] font-mulish">
+                        <p className="text-center text-sm md:text-base font-medium text-[#3A3A3A] font-mulish">
                             Meggie juga akan kasih km bonus quiz latihan nih, supaya kamu bisa tes pemahaman kamu
                         </p>
                     </div>
@@ -107,17 +107,17 @@ function ProductOffer() {
                 <div className="relative space-y-14">
                     <BlurEffectBackground />
                     <div className="text-center">
-                        <h4 className="font-fredoka text-2xl font-bold">All Guide book ini bisa kamu dapatkan dengan harga</h4>
-                        <p className="font-mulish line-through font-medium text-2xl">Rp. 399,000</p>
+                        <h4 className="font-fredoka text-base md:text-2xl font-bold">All Guide book ini bisa kamu dapatkan dengan harga</h4>
+                        <p className="font-mulish line-through font-medium text-lg md:text-2xl">Rp. 399,000</p>
                     </div>
                     <div className="relative text-center z-[2]">
-                        <p className="font-mulish font-semibold text-[#5D5D5D]">Harga spesial hari ini!</p>
-                        <h3 className="font-fredoka text-6xl font-bold">Rp. 149.000,-</h3>
+                        <p className="font-mulish font-semibold text-[#5D5D5D] text-sm md:text-base">Harga spesial hari ini!</p>
+                        <h3 className="font-fredoka text-3xl md:text-6xl font-bold">Rp. 149.000,-</h3>
                     </div>
                     <button
-                        className="relative w-max mx-auto bg-black rounded-lg center-flex gap-2 text-white px-6 py-2 z-[2]">
-                        <p className="text-xl font-mulish font-medium">Beli sekarang</p>
-                        <FiShoppingCart className="text-xl" />
+                        className="relative w-max mx-auto bg-black rounded-lg center-flex gap-2 text-white px-6 py-2 z-[2] outline-double active:outline-black">
+                        <p className="text-sm md:text-xl font-mulish font-medium">Beli sekarang</p>
+                        <FiShoppingCart className="text-base md:text-xl" />
                     </button>
                     {/* shape */}
                     <OrangeCircleShape />
