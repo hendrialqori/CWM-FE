@@ -2,7 +2,8 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./src/**/*.{ts,tsx,mdx}"
+    "./src/**/*.{ts,tsx,mdx}",
+    "./node_modules/react-tailwindcss-datepicker/dist/index.esm.{js,ts}"
   ],
   theme: {
     extend: {
@@ -25,5 +26,6 @@ const config: Config = {
     },
   },
   plugins: [],
+  darkMode: "class"
 };
 export default config;

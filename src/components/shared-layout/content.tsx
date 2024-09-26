@@ -5,7 +5,7 @@ type Props = {
 export default function Content({ children }: Props) {
     return (
         <section
-            className="relative w-full min-h-screen max-w-7xl mx-auto px-5 pt-5"
+            className="relative w-full min-h-screen max-w-7xl mx-auto px-10 pt-5"
             aria-label="content container"
         >
             {children}

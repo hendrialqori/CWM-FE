@@ -1,39 +1,84 @@
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "#/components/ui/table";
+"use client";
+
+import React from "react";
+import Datepicker from "#/components/ui/date-picker";
+import {
+    Table, TableBody, TableCell,
+    TableHead, TableHeader, TableRow
+} from "#/components/ui/table";
+import { GrFormPrevious } from "react-icons/gr";
+import { GrFormNext } from "react-icons/gr";
+import { type DateValueType } from "react-tailwindcss-datepicker";
+
+
+function badgeColor(value: string) {
+    switch (value) {
+        case "pending":
+            return "bg-yellow-300"
+        case "success":
+            return "bg-green-400 text-white"
+        case "failed":
+            return "bg-red-600 text-white"
+        default:
+            throw new Error("No one value matching!")
+    }
+}
 
 function TransactionHistory() {
-    return (
-        <Table>
-            <TableCaption>A list of your recent invoices.</TableCaption>
-            <TableHeader className="bg-[#F2F4F7]">
-                <TableRow>
-                    <TableHead className="w-[100px]">Invoice</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Method</TableHead>
-                    <TableHead className="text-right">Amount</TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                <TableRow className="font-medium">
-                    <TableCell>INV001</TableCell>
-                    <TableCell>Paid</TableCell>
-                    <TableCell>Credit Card</TableCell>
-                    <TableCell className="text-right">$250.00</TableCell>
-                </TableRow>
-                <TableRow className="font-medium">
-                    <TableCell>INV001</TableCell>
-                    <TableCell>Paid</TableCell>
-                    <TableCell>Credit Card</TableCell>
-                    <TableCell className="text-right">$250.00</TableCell>
-                </TableRow>
-                <TableRow className="font-medium">
-                    <TableCell>INV001</TableCell>
-                    <TableCell>Paid</TableCell>
-                    <TableCell>Credit Card</TableCell>
-                    <TableCell className="text-right">$250.00</TableCell>
-                </TableRow>
-            </TableBody>
-        </Table>
 
+    const [datePicker, setDatePicker] = React.useState<DateValueType>({} as DateValueType)
+
+    function handleChangeDatePicker(date: DateValueType) {
+        setDatePicker({ startDate: date?.startDate!, endDate: date?.startDate! })
+    }
+
+    return (
+        <div className="space-y-10">
+            <div className="flex justify-between items-center">
+                <h2 className="-tracking-wider text-xl font-semibold">Transactions history</h2>
+                <div className="w-[300px]" aria-label="date picker container">
+                    <Datepicker
+                        date={datePicker}
+                        onChange={handleChangeDatePicker}
+                    />
+                </div>
+            </div>
+            <Table>
+                <TableHeader className="bg-[#F2F4F7]">
+                    <TableRow className="font-medium">
+                        <TableHead className="w-1/6">Date</TableHead>
+                        <TableHead className="w-1/6">Email</TableHead>
+                        <TableHead className="w-1/6">Phone</TableHead>
+                        <TableHead className="w-1/6">Status</TableHead>
+                        <TableHead className="w-2/6">Product</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    {Array.from({ length: 5 }).map((_, i) => (
+                        <TableRow key={i} className="font-medium">
+                            <TableCell className="py-4 px-2">Senin, 24 oktober 2024</TableCell>
+                            <TableCell className="py-4 px-2">chikajesica12@gmail.com</TableCell>
+                            <TableCell className="py-4 px-2">628 967771221</TableCell>
+                            <TableCell className="py-4 px-2">
+                                <div className={`${badgeColor("failed")} w-max px-4 py-[2px] rounded-full center-flex`} aria-label="badge">
+                                    <p>Failed</p>
+                                </div>
+                            </TableCell>
+                            <TableCell className="py-4 px-2">Survive in Chinese part 1 Bab 1-5</TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
+            <div className="flex items-center justify-end gap-4">
+                <button className="bg-[#F8F8F8] border border-[#DBDBDB] rounded-md p-[2px] hover:outline-double hover:outline-black">
+                    <GrFormPrevious className="text-2xl" />
+                </button>
+                <p className="text-sm font-medium">Menampilkan 1 - 5 dari 100</p>
+                <button className="bg-[#F8F8F8] border border-[#DBDBDB] rounded-md p-[2px] hover:outline-double hover:outline-black">
+                    <GrFormNext className="text-2xl" />
+                </button>
+            </div>
+        </div>
     )
 }
 

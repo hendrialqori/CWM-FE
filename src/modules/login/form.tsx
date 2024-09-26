@@ -8,17 +8,12 @@ import {
 } from "#/components/ui/form"
 import { CgSpinner } from "react-icons/cg";
 import { zodResolver } from "@hookform/resolvers/zod"
-import { loginFormScheme } from "#/validations/login-form-validation"
+import { loginFormScheme, type LoginFormType } from "#/validations/login-form-validation"
 import Input from "#/components/ui/input"
-import Overlay from "#/components/ui/overlay";
-
-type Form = {
-    email: string;
-    password: string
-}
+import Portal from "#/components/ui/portal";
 
 function LoginForm() {
-    const { register, handleSubmit, formState: { errors } } = useForm<Form>({
+    const { register, handleSubmit, formState: { errors } } = useForm<LoginFormType>({
         resolver: zodResolver(loginFormScheme)
     })
     const [isLoading, setLoading] = React.useState(false)
@@ -42,7 +37,7 @@ function LoginForm() {
                                 Enter your email
                             </FormFielDescription>
                             <FormFieldError>
-                                {errors.email?.message}
+                                {errors.email?.message as string}
                             </FormFieldError>
                         </React.Fragment>
                     )}
@@ -61,7 +56,7 @@ function LoginForm() {
                                 Enter your password
                             </FormFielDescription>
                             <FormFieldError>
-                                {errors.password?.message}
+                                {errors.password?.message as string}
                             </FormFieldError>
                         </React.Fragment>
                     )}
@@ -75,12 +70,12 @@ function LoginForm() {
                     </button>
                 </div>
             </Form>
-            <Overlay isOpen={isLoading}>
+            <Portal isOpen>
                 <div className="text-white center-flex gap-2">
                     <p>Loading...</p>
                     <CgSpinner className="animate-spin text-xl" />
                 </div>
-            </Overlay>
+            </Portal>
         </React.Fragment>
     )
 }

@@ -10,7 +10,7 @@ const inter = Inter({
 
 
 export const metadata: Metadata = {
-   title: "Admin | chinesewithmeggie",
+   title: "Dashboard | chinesewithmeggie",
    description: "CMS admin to handle content",
 };
 

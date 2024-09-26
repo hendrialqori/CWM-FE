@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react"
-import Overlay from "#/components/ui/overlay"
+import Portal from "#/components/ui/portal"
 import { PiPlayLight } from "react-icons/pi";
 import { VscChromeClose } from "react-icons/vsc";
 
@@ -24,7 +24,7 @@ function HeroVideoButton() {
                     <PiPlayLight className="text-white text-lg" />
                 </div>
             </button>
-            <Overlay isOpen={isOpen} onClose={toggle("close")}>
+            <Portal isOpen={isOpen} onClose={toggle("close")}>
                 <div className="size-max relative">
                     <button className="absolute top-3 right-3 z-[2]" onClick={toggle("close")}>
                         <VscChromeClose className="text-white text-2xl"/>
@@ -33,7 +33,7 @@ function HeroVideoButton() {
                         <source src="/video/teaser.mp4" type="video/mp4" />
                     </video>
                 </div>
-            </Overlay>
+            </Portal>
         </React.Fragment>
     )
 }
