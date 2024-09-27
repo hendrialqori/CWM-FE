@@ -31,7 +31,7 @@ function ProductCard(props: ProductCardProps) {
         return () => setModal(({ ...modalState, [type]: true }))
     }
 
-    function resetModalState() {
+    function resetModalAction() {
         setModal(modalState)
     }
 
@@ -49,16 +49,16 @@ function ProductCard(props: ProductCardProps) {
                     />
                 </div>
                 <figcaption>
-                    <div className="space-y-4 px-5 py-6">
-                        <h3 className="font-semibold text-base">{props.title}</h3>
-                        <p className="text-[#5D5D5D] font-semibold text-sm">
+                    <div className="space-y-2 md:space-y-4 px-5 py-6">
+                        <h3 className="font-semibold text-sm md:text-base">{props.title}</h3>
+                        <p className="text-[#5D5D5D] font-semibold text-xs md:text-sm">
                             It is a long established fact that a reader will be distracted by the...
                             <span role="button" tabIndex={-1} className="hover:underline cursor-pointer">[read more]</span>
                         </p>
                         <div className="flex items-center justify-between">
                             <div className="">
                                 <p className="line-through text-sm font-medium text-red-600">Rp {priceFormat(props.strikeThroughPrice)}</p>
-                                <p className="font-bold text-base md:text-lg">Rp {priceFormat(props.originalPrice)}</p>
+                                <p className="font-bold text-sm md:text-lg">Rp {priceFormat(props.originalPrice)}</p>
                             </div>
                             <div className="space-x-4">
                                 <button
@@ -78,17 +78,14 @@ function ProductCard(props: ProductCardProps) {
                     </div>
                 </figcaption>
             </figure>
-            <Portal
-                isOpen={modal.update}
-                onClose={resetModalState}
-            >
-                <ProductForm onClose={resetModalState} />
+            <Portal isOpen={modal.update}>
+                <ProductForm
+                    type="UPDATE"
+                    onClose={resetModalAction}
+                />
             </Portal>
-            <Portal
-                isOpen={modal.delete}
-                onClose={resetModalState}
-            >
-                <ProductDelete onClose={resetModalState} />
+            <Portal isOpen={modal.delete}>
+                <ProductDelete onClose={resetModalAction} />
             </Portal>
         </>
     )

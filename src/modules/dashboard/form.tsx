@@ -11,9 +11,17 @@ import { cn, sanitizedNonDigits, priceFormat } from "#/lib/utils"
 import { IoMdClose } from "react-icons/io"
 
 
-type Props = { onClose: () => void }
+type Props = {
+    type: "CREATE" | "UPDATE",
+    onClose: () => void
+}
 
-function ProductForm({ onClose }: Props) {
+const buttonLabel = {
+    CREATE: "Simpan",
+    UPDATE: "Simpan perubahan"
+}
+
+function ProductForm({ type, onClose }: Props) {
 
     const { register, handleSubmit, formState: { errors }, setValue } = useForm<AddProductType>({
         resolver: zodResolver(addProductScheme)
@@ -26,8 +34,12 @@ function ProductForm({ onClose }: Props) {
         return parseToNumber
     }
 
+    function createNewProduct(){}
+
+    function updateProduct(){}
+
     const submit = handleSubmit((state) => {
-        console.log(state)
+        
     })
 
 
@@ -131,7 +143,7 @@ function ProductForm({ onClose }: Props) {
                         className="w-1/2 text-xs md:text-sm font-medium bg-black text-white rounded-lg py-2 h-10 outline-double active:outline-black"
                         disabled={isLoading}
                     >
-                        Save
+                        {buttonLabel[type]}
                     </button>
                 </div>
             </Form>

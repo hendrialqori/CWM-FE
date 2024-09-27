@@ -14,7 +14,7 @@ function Content({ children }: { children: React.ReactNode }) {
             exit={{ opacity: 0, top: -30 }}
             transition={{ duration: 0.1 }}
         >
-            <div className="z-[2] max-h-screen overflow-y-auto w-full flex justify-center py-5" aria-label="content container">
+            <div className="z-[2] max-h-screen overflow-y-auto w-full flex justify-center py-5 px-2 md:px-0" aria-label="content container">
                 {children}
             </div>
             <div

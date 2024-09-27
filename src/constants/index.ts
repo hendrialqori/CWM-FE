@@ -1,5 +1,7 @@
 import { type Testimony } from "#/@type";
 
+export const IS_EXPAND_SIDEBAR = false
+
 export const testimonial: Testimony[] = [
     {
         image: "/image/cewek-random.jpg",

@@ -21,9 +21,9 @@ export default function Datepicker({ date, onChange, className }: Props) {
             separator="-"
             displayFormat="DD/MM/YYYY"
             classNames={{
-                container: () => "",
+                container: ({ className }: any) => cn("[&>*]:text-medium", className),
                 input: () => cn(merge(
-                    "h-10 px-3 py-3 md:py-2 w-full bg-[#F4F4F4] text-sm font-medium rounded-lg",
+                    "h-10 px-3 py-3 md:py-2 w-full bg-[#F4F4F4] text-xs md:text-sm font-medium rounded-lg",
                     "border border-[#EDEDF0] focus:border-[#EDEDF0] focus:bg-white focus:ring-1 focus:ring-offset-1 focus:ring-black",
                     className)
                 ),

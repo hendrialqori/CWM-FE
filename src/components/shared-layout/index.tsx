@@ -11,7 +11,7 @@ export default function SharedLayout({ children }: Props) {
         <main className="flex">
             <Sidebar />
             <Content>
-                {/* <Header /> */}
+                <Header />
                 {children}
             </Content>
         </main>
