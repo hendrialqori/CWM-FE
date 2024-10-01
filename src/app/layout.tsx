@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { Mulish, Fredoka } from "next/font/google"
+import ClientProvider from "#/components/client-provider";
+import { Toaster } from "sonner";
 
 const fredoka = Fredoka({
   subsets: ['latin'],
@@ -25,11 +27,14 @@ type TRootLayout = Readonly<{ children: React.ReactNode }>
 
 export default function RootLayout({ children }: TRootLayout) {
   return (
-    <html lang="en">
-      <body
-        className={`antialiased ${fredoka.variable} ${mulish.variable}`}>
-        {children}
-      </body>
-    </html>
+    <ClientProvider>
+      <html lang="en">
+        <body
+          className={`antialiased ${fredoka.variable} ${mulish.variable}`}>
+          {children}
+          <Toaster richColors/>
+        </body>
+      </html>
+    </ClientProvider>
   );
 }

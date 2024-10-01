@@ -1,25 +1,44 @@
 "use client";
 
 import React from "react"
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { toast } from "sonner"
+
 import {
     Form, FormItem,
     FormFieldError, FormFielDescription
 } from "#/components/ui/form"
 import { CgSpinner } from "react-icons/cg";
-import { zodResolver } from "@hookform/resolvers/zod"
-import { loginFormScheme, type LoginFormType } from "#/validations/login-form-validation"
 import Input from "#/components/ui/input"
 import Portal from "#/components/ui/portal";
+
+import { loginFormScheme, type LoginFormType } from "#/validations/login-form-validation"
+import { useLogin } from "#/services/auth.service";
 
 function LoginForm() {
     const { register, handleSubmit, formState: { errors } } = useForm<LoginFormType>({
         resolver: zodResolver(loginFormScheme)
     })
-    const [isLoading, setLoading] = React.useState(false)
+    const router = useRouter()
+    const login = useLogin()
 
     const submit = handleSubmit((state) => {
-        console.log(state)
+        const data = {
+            email: state.email,
+            password: state.password
+        }
+
+        login.mutate(data, {
+            onSuccess: () => {
+                router.push("/admin/dashboard")
+            },
+            onError: (error) => {
+                const message = error.response?.data.errors
+                toast.error(message)
+            }
+        })
     })
 
     return (
@@ -64,13 +83,13 @@ function LoginForm() {
                 <div className="pt-6">
                     <button
                         className="w-full text-xs md:text-sm bg-black text-white rounded-lg py-2 h-10 outline-double active:outline-black"
-                        disabled={isLoading}
+                        disabled={login.isPending}
                     >
                         Sign In
                     </button>
                 </div>
             </Form>
-            <Portal isOpen>
+            <Portal isOpen={login.isPending}>
                 <div className="text-white center-flex gap-2">
                     <p>Loading...</p>
                     <CgSpinner className="animate-spin text-xl" />

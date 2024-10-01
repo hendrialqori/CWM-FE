@@ -44,7 +44,7 @@ function Sidebar({ children }: { children: React.ReactNode }) {
                     <Image
                         src={china_flag} width={20} height={14} alt="china_flag"
                     />
-                    <span className={cn(expand ? " w-32 ml-3" : "w-0", "text-sm text-left font-fredoka font-bold overflow-hidden")}>Chinesewithmeggie</span>
+                    <span className={cn(expand ? " w-32 ml-3" : "w-0", "text-xs md:text-sm text-left font-fredoka font-bold overflow-hidden")}>Chinesewithmeggie</span>
                 </div>
                 <ul className="h-full">
                     <SidebarContext.Provider value={{ expand }}>

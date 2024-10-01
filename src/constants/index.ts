@@ -1,5 +1,11 @@
 import { type Testimony } from "#/@type";
 
+export const CLIENT = process.env.NEXT_PUBLIC_CLIENT
+
+export const API = CLIENT + "/api"
+
+export const STATIC = CLIENT + "/static"
+
 export const IS_EXPAND_SIDEBAR = false
 
 export const testimonial: Testimony[] = [

@@ -4,6 +4,6 @@ type State = { show: boolean }
 type Action = { toggle: () => void }
 
 export const useSidebar = create<State & Action>((set, get) => ({
-    show: false,
+    show: true,
     toggle: () => set({ show: !get().show })
 }))

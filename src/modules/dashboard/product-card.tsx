@@ -8,22 +8,15 @@ import { TbPencil } from "react-icons/tb";
 import Portal from "#/components/ui/portal";
 import { ProductForm } from "./form";
 import { ProductDelete } from "./product-delete";
-
-type ProductCardProps = {
-    id: number
-    image: string;
-    title: string;
-    description: string;
-    originalPrice: number;
-    strikeThroughPrice: number
-}
+import { Product } from "#/@type";
+import { STATIC } from "#/constants";
 
 const modalState = {
     update: false,
     delete: false
 }
 
-function ProductCard(props: ProductCardProps) {
+function ProductCard(props: Product) {
 
     const [modal, setModal] = React.useState(modalState)
 
@@ -40,24 +33,24 @@ function ProductCard(props: ProductCardProps) {
             <figure className="bg-white rounded-2xl overflow-hidden shadow-md z-[3] w-full">
                 <div className="bg-[#F5F5F5] flex justify-center items-center" aria-label="image-wrapper">
                     <Image
-                        src={props.image}
+                        src={`${STATIC}/${props.image}`}
                         width={303}
                         height={300}
                         alt="product-pannel"
-                        className="object-cover"
+                        className="object-cover h-60 w-full"
 
                     />
                 </div>
                 <figcaption>
                     <div className="space-y-2 md:space-y-4 px-5 py-6">
-                        <h3 className="font-semibold text-sm md:text-base">{props.title}</h3>
+                        <h3 className="font-semibold text-sm md:text-base">{props.title ?? "[No-name]"}</h3>
                         <p className="text-[#5D5D5D] font-semibold text-xs md:text-sm">
-                            It is a long established fact that a reader will be distracted by the...
+                            {props.description} {" "}
                             <span role="button" tabIndex={-1} className="hover:underline cursor-pointer">[read more]</span>
                         </p>
                         <div className="flex items-center justify-between">
                             <div className="">
-                                <p className="line-through text-sm font-medium text-red-600">Rp {priceFormat(props.strikeThroughPrice)}</p>
+                                <p className="line-through text-sm font-medium text-red-600">Rp {priceFormat(props.strikeoutPrice)}</p>
                                 <p className="font-bold text-sm md:text-lg">Rp {priceFormat(props.originalPrice)}</p>
                             </div>
                             <div className="space-x-4">
@@ -81,11 +74,13 @@ function ProductCard(props: ProductCardProps) {
             <Portal isOpen={modal.update}>
                 <ProductForm
                     type="UPDATE"
+                    id={props.id}
                     onClose={resetModalAction}
                 />
             </Portal>
-            <Portal isOpen={modal.delete}>
-                <ProductDelete onClose={resetModalAction} />
+            <Portal isOpen={modal.delete} >
+                <ProductDelete id={props.id}
+                    onClose={resetModalAction} />
             </Portal>
         </>
     )
