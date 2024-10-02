@@ -11,7 +11,7 @@ function Point({ description }: { description: string }) {
             <div className="bg-cwm_green rounded-[0.25rem] p-[2px]">
                 <LuCheck className="text-white text-base md:text-lg" />
             </div>
-            <p className="text-base md:text-lg -translate-y-1 font-medium">{description}</p>
+            <p className="text-xs md:text-lg md:-translate-y-1 font-medium">{description}</p>
         </div>
     )
 }

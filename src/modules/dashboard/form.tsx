@@ -27,7 +27,6 @@ const buttonLabel = {
     UPDATE: "Simpan perubahan"
 }
 
-
 function ProductForm({ id, type, onClose, }: Props) {
     const queryClient = useQueryClient()
 
@@ -102,7 +101,6 @@ function ProductForm({ id, type, onClose, }: Props) {
             },
             onError: (error) => {
                 const message = error.response?.data.message
-                console.log(message)
                 toast.error(JSON.stringify(message))
             }
         })
@@ -131,7 +129,7 @@ function ProductForm({ id, type, onClose, }: Props) {
         postMutation.isPending || updateMutation.isPending
 
     return (
-        <div className="bg-white rounded-xl w-[400px] px-5 py-4">
+        <div className="bg-white rounded-xl w-[400px] h-max px-5 py-4">
             <div className="flex justify-end items-center" onClick={onClose}>
                 <button disabled={mutationPending}>
                     <IoMdClose className="text-xl" />

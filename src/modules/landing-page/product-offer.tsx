@@ -2,12 +2,12 @@ import Image from "next/image";
 import { BsCameraVideo } from "react-icons/bs"
 import { LiaAssistiveListeningSystemsSolid } from "react-icons/lia";
 import { MdOutlineQuiz } from "react-icons/md";
-import { FiShoppingCart } from "react-icons/fi";
-import { ProductListCard } from "./product-offer-list-card";
+import { ProductCardList } from "./product-card-list";
 import rocket_shape from "#/assets/svg/rocket-shape.svg"
 import orange_circle_shape from "#/assets/svg/orange-circle-shape.svg"
 import green_circle_shape from "#/assets/svg/green-circle-shape.svg"
 import ahalf_orange_shape from "#/assets/svg/ahafl-orange-shape.svg"
+import { ProductOfferCheckoutAction } from "./product-offer-checkout-action";
 
 function BlurEffectBackground() {
     return (
@@ -114,20 +114,19 @@ function ProductOffer() {
                         <p className="font-mulish font-semibold text-[#5D5D5D] text-sm md:text-base">Harga spesial hari ini!</p>
                         <h3 className="font-fredoka text-3xl md:text-6xl font-bold">Rp. 149.000,-</h3>
                     </div>
-                    <button
-                        className="relative w-max mx-auto bg-black rounded-lg center-flex gap-2 text-white px-6 py-2 z-[2] outline-double active:outline-black">
-                        <p className="text-sm md:text-xl font-mulish font-medium">Beli sekarang</p>
-                        <FiShoppingCart className="text-base md:text-xl" />
-                    </button>
+                    {/* button checkout */}
+                    <ProductOfferCheckoutAction />
+
                     {/* shape */}
                     <OrangeCircleShape />
                 </div>
-                <ProductListCard />
+                <ProductCardList />
             </div>
             {/* shape */}
             <GreenCircleShape />
             {/* shape */}
             <AhaflOrangeShape />
+
         </section>
     )
 }

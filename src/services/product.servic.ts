@@ -4,7 +4,6 @@ import type { Success, Product, Error } from "#/@type"
 import { API } from "#/constants"
 
 export function useGetProductList() {
-
     type Params = { signal: AbortSignal }
 
     const GET = async ({ signal }: Params) => {
@@ -43,7 +42,6 @@ export function useGetProduct({ id }: { id: number }) {
 }
 
 export function useMutationProduct() {
-
     type PostParams = { formData: FormData }
 
     type DeleteParams = { id: number }

@@ -1,4 +1,4 @@
-import { z, ZodType } from "zod"
+import { z } from "zod"
 
 export const loginFormScheme = z.object({
     email: z.string().email(),

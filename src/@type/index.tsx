@@ -29,7 +29,7 @@ export type Product = {
     image: string,
     originalPrice: number,
     strikeoutPrice: number,
-    description: string,
-    createdAt: string | Date,
-    updatedAt: string | Date
+    description?: string,
+    createdAt?: string | Date,
+    updatedAt?: string | Date
 }
