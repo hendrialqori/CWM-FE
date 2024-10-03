@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-
 import "./globals.css";
 import { Mulish, Fredoka } from "next/font/google"
 import ClientProvider from "#/components/client-provider";

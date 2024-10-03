@@ -9,7 +9,7 @@ type Props = {
 export default function SharedLayout({ children }: Props) {
     return (
         <main className="flex">
-            <Sidebar />
+            {/* <Sidebar /> */}
             <Content>
                 <Header />
                 {children}

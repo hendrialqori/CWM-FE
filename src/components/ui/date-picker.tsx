@@ -8,9 +8,10 @@ type Props = {
     date: DateValueType;
     onChange: (date: DateValueType) => void
     className?: string;
+    disabled?: boolean
 }
 
-export default function Datepicker({ date, onChange, className }: Props) {
+export default function Datepicker({ date, onChange, className, disabled = false }: Props) {
     return (
         <D
             useRange={false}
@@ -30,6 +31,7 @@ export default function Datepicker({ date, onChange, className }: Props) {
                 toggleButton: ({ className }: any) => cn("[&>svg]:stroke-black", className)
             }}
             placeholder="Select your date range"
+            disabled={disabled}
         />
     );
 }

@@ -130,8 +130,8 @@ function ProductForm({ id, type, onClose, }: Props) {
 
     return (
         <div className="bg-white rounded-xl w-[400px] h-max px-5 py-4">
-            <div className="flex justify-end items-center" onClick={onClose}>
-                <button disabled={mutationPending}>
+            <div className="flex justify-end items-center">
+                <button onClick={onClose} disabled={mutationPending}>
                     <IoMdClose className="text-xl" />
                 </button>
             </div>

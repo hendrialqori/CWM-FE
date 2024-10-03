@@ -14,7 +14,7 @@ type Props = Product & {
     onClose: () => void
 }
 
-function Checkout(props: Props) {
+export function Checkout(props: Props) {
     const { register, handleSubmit,
         formState: { errors }, getValues, setError } = useForm<CheckoutFormType>({
             resolver: zodResolver(checkoutFormScheme)
@@ -56,6 +56,26 @@ function Checkout(props: Props) {
             </div>
             <div className="px-5 py-6 center-flex">
                 <Form onSubmit={submit} className="w-full space-y-3">
+                    <FormItem className="space-y-2">
+                        {(id) => (
+                            <React.Fragment>
+                                <FormLabel htmlFor={id}>Phone</FormLabel>
+                                <Input
+                                    id={id}
+                                    {...register("phone", { valueAsNumber: true })}
+                                    type="number"
+                                    placeholder="Example: 6289677557221"
+                                    aria-invalid={Boolean(errors.phone?.message)}
+                                />
+                                <FormFielDescription>
+                                    Enter your phone number
+                                </FormFielDescription>
+                                <FormFieldError>
+                                    {errors.phone?.message as string}
+                                </FormFieldError>
+                            </React.Fragment>
+                        )}
+                    </FormItem>
                     <FormItem className="space-y-2">
                         {(id) => (
                             <React.Fragment>
@@ -112,5 +132,3 @@ function Checkout(props: Props) {
         </div>
     )
 }
-
-export { Checkout }

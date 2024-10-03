@@ -1,5 +1,14 @@
+export type Meta = {
+    page: number | null,
+    limit: number | null,
+    from: number | null,
+    to: number | null,
+    total_row: number | null
+}
+
 export type Success<T> = {
     data: T;
+    meta: Meta
     message: string
 }
 
@@ -32,4 +41,14 @@ export type Product = {
     description?: string,
     createdAt?: string | Date,
     updatedAt?: string | Date
+}
+
+export type Transaction = {
+    id: 8,
+    email: string,
+    phone: number,
+    status: string | null,
+    product: Product
+    createdAt: string,
+    updatedAt: string
 }
