@@ -47,12 +47,12 @@ function ProductCard(props: Product) {
                         height={300}
                         alt="product-pannel"
                         className="object-cover h-60 w-full"
-
+                        priority
                     />
                 </div>
                 <figcaption className="space-y-5 px-5 py-6">
                     <div className="space-y-2" aria-label="title & discription">
-                        <h3 className="font-fredoka font-bold text-base md:text-xl">{props.title}</h3>
+                        <h3 className="font-fredoka font-bold text-base md:text-lg">{props.title}</h3>
                         <div className="min-h-20 text-[#5D5D5D] font-medium text-sm md:text-base">
                             <p>{truncateDescription(props?.description ?? "")} {" "}</p>
                             <span
@@ -73,15 +73,15 @@ function ProductCard(props: Product) {
                         <div className="space-x-4">
                             <button
                                 className="bg-[#F8F8F8] border border-[#DBDBDB] rounded-md p-[2px] hover:outline-double hover:outline-black"
-                                onClick={showModalAction("delete")}
-                            >
-                                <FiTrash className="text-2xl" />
-                            </button>
-                            <button
-                                className="bg-[#F8F8F8] border border-[#DBDBDB] rounded-md p-[2px] hover:outline-double hover:outline-black"
                                 onClick={showModalAction("update")}
                             >
                                 <TbPencil className="text-2xl" />
+                            </button>
+                            <button
+                                className="bg-[#F8F8F8] border border-[#DBDBDB] rounded-md p-[2px] hover:outline-double hover:outline-black"
+                                onClick={showModalAction("delete")}
+                            >
+                                <FiTrash className="text-2xl" />
                             </button>
                         </div>
                     </div>
