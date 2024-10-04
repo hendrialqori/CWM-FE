@@ -6,7 +6,7 @@ import { ButtonAddProduct } from "./button-add-product";
 import Flow from "#/components/control-flow";
 
 
-function ProductCardList() {
+export default function ProductCardList() {
     const { data: products, isPending, isSuccess } = useGetProductList()
 
     return (
@@ -36,5 +36,3 @@ function ProductCardList() {
         </div>
     )
 }
-
-export { ProductCardList }

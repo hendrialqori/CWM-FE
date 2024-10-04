@@ -9,7 +9,7 @@ import { Pagination } from "./transaction-pagination";
 import { TableData, TableSkeleton } from "./transaction-table";
 import dayjs from "dayjs";
 
-export function Transactions() {
+export default function Transactions() {
     const limit = 5
     const [datePicker, setDatePicker] = React.useState<DateValueType>({} as DateValueType)
     const [currentPage, setCurrentPage] = React.useState(1)

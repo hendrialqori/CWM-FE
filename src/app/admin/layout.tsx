@@ -1,6 +1,10 @@
-import SharedLayout from "#/components/shared-layout";
+// import dynamic from "next/dynamic";
 import type { Metadata } from "next";
-import {Inter } from "next/font/google"
+import { Inter } from "next/font/google"
+
+// const SharedLayout = dynamic(() => import("#/components/shared-layout"), {
+//    ssr: false
+// })
 
 const inter = Inter({
    subsets: ['latin'],
@@ -19,9 +23,9 @@ export default function AdminLayout({ children }: TAdminLayout) {
       <html lang="en">
          <body
             className={`antialiased ${inter.className}`}>
-            <SharedLayout>
+            {/* <SharedLayout> */}
                {children}
-            </SharedLayout>
+            {/* </SharedLayout> */}
          </body>
       </html>
    );
