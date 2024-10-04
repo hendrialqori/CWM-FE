@@ -1,5 +1,5 @@
 import Image from "next/image"
-import yellow_round_shape from "#/assets/svg/yellow-round-shape.svg"
+import yellow_round_shape from "#/assets/svg/yellow-round-shape.svg?url"
 
 function YellowRoundShape() {
     return (

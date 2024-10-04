@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { CgNotes } from "react-icons/cg";
 import { HiOutlineLogout } from "react-icons/hi";
 import { cn } from "#/lib/utils";
-import china_flag from "#/assets/svg/china-flag.svg"
+import china_flag from "#/assets/svg/china-flag.svg?url"
 import { useSidebar } from "#/stores/use-sidebar";
 import { Logout } from "./logout";
 

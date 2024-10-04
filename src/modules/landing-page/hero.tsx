@@ -1,5 +1,5 @@
 import Image from "next/image";
-import china_flag from "#/assets/svg/china-flag.svg"
+import china_flag from "#/assets/svg/china-flag.svg?url"
 import { MdOutlineArrowForward } from "react-icons/md";
 import * as Utils from "#/lib/utils"
 import { HeroVideoButton } from "./hero-video-button";

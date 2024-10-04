@@ -3,7 +3,7 @@
 import React from "react"
 import Image from "next/image"
 import { Dropdown } from "./faq-dropdown";
-import blue_circle_shape from "#/assets/svg/blue-circle-shape.svg"
+import blue_circle_shape from "#/assets/svg/blue-circle-shape.svg?url"
 
 function BlueCircleShape() {
     return (

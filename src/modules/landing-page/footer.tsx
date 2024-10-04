@@ -3,8 +3,8 @@ import Image from "next/image"
 import { FiShoppingCart } from "react-icons/fi"
 import { LuInstagram } from "react-icons/lu";
 import { FaTiktok } from "react-icons/fa6";
-import china_flag from "#/assets/svg/china-flag.svg"
-import green_blur_circle_shape from "#/assets/svg/green-blur-circle-shape.svg"
+import china_flag from "#/assets/svg/china-flag.svg?url"
+import green_blur_circle_shape from "#/assets/svg/green-blur-circle-shape.svg?url"
 
 function Credits() {
     return (

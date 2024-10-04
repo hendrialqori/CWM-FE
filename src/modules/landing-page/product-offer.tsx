@@ -3,10 +3,10 @@ import { BsCameraVideo } from "react-icons/bs"
 import { LiaAssistiveListeningSystemsSolid } from "react-icons/lia";
 import { MdOutlineQuiz } from "react-icons/md";
 import { ProductCardList } from "./product-card-list";
-import rocket_shape from "#/assets/svg/rocket-shape.svg"
-import orange_circle_shape from "#/assets/svg/orange-circle-shape.svg"
-import green_circle_shape from "#/assets/svg/green-circle-shape.svg"
-import ahalf_orange_shape from "#/assets/svg/ahafl-orange-shape.svg"
+import rocket_shape from "#/assets/svg/rocket-shape.svg?url"
+import orange_circle_shape from "#/assets/svg/orange-circle-shape.svg?url"
+import green_circle_shape from "#/assets/svg/green-circle-shape.svg?url"
+import ahalf_orange_shape from "#/assets/svg/ahafl-orange-shape.svg?url"
 import { ProductOfferCheckoutAction } from "./product-offer-checkout-action";
 
 function BlurEffectBackground() {

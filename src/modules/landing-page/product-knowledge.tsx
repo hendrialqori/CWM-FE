@@ -1,6 +1,6 @@
 import Image from "next/image";
-import star_shape from "#/assets/svg/star-shape.svg"
-import dollar_shape from "#/assets/svg/dollar-shape.svg"
+import star_shape from "#/assets/svg/star-shape.svg?url"
+import dollar_shape from "#/assets/svg/dollar-shape.svg?url"
 import { LuCheck } from "react-icons/lu";
 import { productKnowledgePoints } from "#/constants";
 
