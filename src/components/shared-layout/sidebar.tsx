@@ -10,6 +10,7 @@ import { HiOutlineLogout } from "react-icons/hi";
 import { cn } from "#/lib/utils";
 import china_flag from "#/assets/svg/china-flag.svg"
 import { useSidebar } from "#/stores/use-sidebar";
+import { Logout } from "./logout";
 
 const SidebarContext = React.createContext({ expand: false })
 
@@ -30,7 +31,7 @@ function Sidebar({ children }: { children: React.ReactNode }) {
     }
 
     React.useEffect(() => {
-        
+
     })
 
     return (
@@ -60,26 +61,13 @@ function Sidebar({ children }: { children: React.ReactNode }) {
                 </button>
             </nav>
             <Portal isOpen={showModal}>
-                <div className="bg-white rounded-xl px-10 py-10 w-[360px] space-y-7">
-                    <p className="text-sm md:text-base font-medium text-center">Logout ?</p>
-                    <div className="grid grid-cols-2 gap-3">
-                        <button
-                            className="text-sm font-medium bg-[#F8F8F8] border border-[#DBDBDB] rounded-lg py-2 h-10 hover:outline-double hover:outline-black"
-                            onClick={modalLogoutAction("close")}
-                        >
-                            Batal
-                        </button>
-                        <button className="text-sm font-medium bg-black text-white rounded-lg py-2 h-10 outline-double active:outline-black">
-                            Logout
-                        </button>
-                    </div>
-                </div>
+                <Logout onClose={modalLogoutAction("close")} />
             </Portal>
         </motion.aside>
     )
 }
 
-function SidebarItem({ href, icon, text, active }:
+function SidebarItem({ href, icon, text }:
     { href: string, icon: ReactNode, text: string, active: boolean }) {
 
     const { expand } = useContext()

@@ -2,7 +2,7 @@ export const dynamic = 'force-dynamic'
 
 
 import { API } from "#/constants";
-import { useProfile } from "#/services/auth.service";
+// import { useProfile } from "#/services/auth.service";
 // import { useSidebar } from "#/stores/use-sidebar";
 import Image from "next/image";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";

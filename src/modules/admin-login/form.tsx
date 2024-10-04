@@ -35,7 +35,7 @@ function LoginForm() {
                 router.push("/admin/dashboard")
             },
             onError: (error) => {
-                const message = error.response?.data.errors
+                const message = error.response?.data.errors as React.ReactNode
                 toast.error(message)
             }
         })
@@ -45,7 +45,7 @@ function LoginForm() {
         <React.Fragment>
             <Form onSubmit={submit} className="w-full space-y-3">
                 <FormItem className="space-y-2">
-                    {(id) => (
+                    {() => (
                         <React.Fragment>
                             <Input
                                 {...register("email")}
@@ -62,7 +62,7 @@ function LoginForm() {
                     )}
                 </FormItem>
                 <FormItem className="space-y-2">
-                    {(id) => (
+                    {() => (
                         <React.Fragment>
                             {/* <FormLabel htmlFor={id}>Email</FormLabel> */}
                             <Input

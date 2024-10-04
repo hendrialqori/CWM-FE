@@ -26,7 +26,7 @@ export function Checkout(props: Props) {
         return email === confirmEmail
     }
 
-    const submit = handleSubmit((state) => {
+    const submit = handleSubmit(() => {
         const isMatch = emailMatchingChecker()
         if (!isMatch) {
             setError("confirmEmail", { message: "Email do not match" })

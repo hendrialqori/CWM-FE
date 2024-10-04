@@ -3,7 +3,7 @@
 import React from "react";
 import Datepicker from "#/components/ui/date-picker";
 import Flow from "#/components/control-flow";
-import { type DateValueType } from "react-tailwindcss-datepicker";
+import { DateType, type DateValueType } from "react-tailwindcss-datepicker";
 import { useGetTransactiontList } from "#/services/transaction.service";
 import { Pagination } from "./transaction-pagination";
 import { TableData, TableSkeleton } from "./transaction-table";
@@ -22,7 +22,7 @@ export function Transactions() {
     })
 
     function handleChangeDatePicker(date: DateValueType) {
-        setDatePicker({ startDate: date?.startDate!, endDate: date?.endDate! })
+        setDatePicker({ startDate: date?.startDate as DateType, endDate: date?.endDate as DateType })
     }
 
     function prevPage() {
@@ -30,7 +30,7 @@ export function Transactions() {
     }
 
     function nextPage() {
-        if (data?.meta.to! === data?.meta.total_row!) {
+        if (data?.meta.to ?? 0 === data?.meta.total_row ?? 0) {
             return
         }
         setCurrentPage((prev) => {

@@ -14,7 +14,7 @@ export type Success<T> = {
 
 export type Error = {
     type: "Validation Error" | "Response Error" | "File Upload Error" | "Unknown Error";
-    errors: any
+    errors: unknown
     message: string
 }
 

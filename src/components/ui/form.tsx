@@ -8,6 +8,8 @@ export const Form = React.forwardRef<HTMLFormElement, React.ComponentPropsWithou
         )
     })
 
+Form.displayName = "Form"
+
 type FormItemProps = Omit<React.ComponentPropsWithoutRef<"div">, "children"> & {
     children: (itemId: string) => React.ReactNode
 }
@@ -22,6 +24,7 @@ export const FormItem = React.forwardRef<HTMLDivElement, FormItemProps>(
             </div>
         )
     })
+FormItem.displayName = "FormItem"
 
 export const FormLabel = React.forwardRef<HTMLLabelElement, React.ComponentPropsWithoutRef<"label">>(
     ({ className, ...props }, refs) => {
@@ -29,6 +32,7 @@ export const FormLabel = React.forwardRef<HTMLLabelElement, React.ComponentProps
             <label ref={refs} className={merge("text-[0.8rem] font-medium select-none", className)} {...props} />
         )
     })
+FormLabel.displayName = "FormLabel"
 
 export const FormFieldError = ({ children, className, ...props }: React.ComponentPropsWithoutRef<"p">) => {
     if (!Boolean(children)) return null
@@ -47,6 +51,7 @@ export const FormFielDescription = React.forwardRef<HTMLSpanElement, React.Compo
             <span ref={refs} className={merge("text-gray-500 text-xs md:text-[0.8rem] font-medium", className)} {...props} />
         )
     })
+FormFielDescription.displayName = "FormFielDescription"
 
 
 // hierarcy

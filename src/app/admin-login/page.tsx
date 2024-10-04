@@ -1,9 +1,8 @@
 import Image from "next/image"
 import china_flag from "#/assets/svg/china-flag.svg"
-import { LoginForm } from "#/modules/login/form"
+import { LoginForm } from "#/modules/admin-login/form"
 
 export default function Login() {
-
     return (
         <main className="bg-[#F4F4F4] w-full min-h-screen">
             <header className="px-10 py-5">

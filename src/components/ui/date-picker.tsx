@@ -22,13 +22,13 @@ export default function Datepicker({ date, onChange, className, disabled = false
             separator="-"
             displayFormat="DD/MM/YYYY"
             classNames={{
-                container: ({ className }: any) => cn("[&>*]:text-medium", className),
+                container: (props: unknown) => cn("[&>*]:text-medium", (props as Record<string, string>).className),
                 input: () => cn(merge(
                     "h-10 px-3 py-3 md:py-2 w-full bg-[#F4F4F4] text-xs md:text-sm font-medium rounded-lg",
                     "border border-[#EDEDF0] focus:border-[#EDEDF0] focus:bg-white focus:ring-1 focus:ring-offset-1 focus:ring-black",
                     className)
                 ),
-                toggleButton: ({ className }: any) => cn("[&>svg]:stroke-black", className)
+                toggleButton: (props: unknown) => cn("[&>svg]:stroke-black", (props as Record<string, string>).className)
             }}
             placeholder="Select your date range"
             disabled={disabled}

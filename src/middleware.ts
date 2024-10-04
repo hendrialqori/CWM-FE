@@ -1,18 +1,20 @@
 import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-import axios from "axios"
-import { cookies } from 'next/headers'
-import { getProfile } from './services/auth.service'
-import { type Error } from './@type'
+// import type { NextRequest } from 'next/server'
+// import axios from "axios"
+// import { cookies } from 'next/headers'
+// import { getProfile } from './services/auth.service'
+// import { type Error } from './@type'
 
-const protectRoute = [
-    "/dashboard"
-]
+// const PREFIX = "/admin"
 
-export async function middleware(request: NextRequest) {
+// const protectRoute = [
+//     "/dashboard"
+// ]
 
-    const isLogged = request.cookies.get("auth-cookie")?.value
-    console.log({ isLogged })
+export async function middleware() {
+
+    // const auth_cookie = request.cookies.get("auth-cookie")?.value
+    // console.count(auth_cookie)
 
 
     return NextResponse.next()

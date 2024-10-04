@@ -1,4 +1,4 @@
-import { number, z } from "zod"
+import { z } from "zod"
 
 export const checkoutFormScheme = z.object({
     phone: z.number({ invalid_type_error: "Input valid phone number" })
