@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image"
-import green_shape from "#/assets/svg/green-shape.svg"
-import blue_shape from "#/assets/svg/blue-shape.svg"
+import green_shape from "../../assets/svg/green-shape.svg"
+import blue_shape from "../../assets/svg/blue-shape.svg"
 import pink_circle_shape from "#/assets/svg/pink-circle-shape.svg"
 import { Testimony as TTestimony } from "#/@type";
 import { testimonial } from "#/constants";
