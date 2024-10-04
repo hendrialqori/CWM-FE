@@ -5,9 +5,9 @@ import { LoginForm } from "#/modules/admin-login/form"
 export default function Login() {
     return (
         <main className="bg-[#F4F4F4] w-full min-h-screen">
-            <header className="px-10 py-5">
+            <header className="px-2 md:px-10 py-5">
                 <div className="flex items-center justify-start">
-                    <p className="font-fredoka font-semibold text-lg">Chinesewithmeggie</p>
+                    <p className="font-fredoka font-semibold text-sm md:text-lg">Chinesewithmeggie</p>
                     <Image
                         src={china_flag} width={20} height={14} alt="china_flag"
                     />

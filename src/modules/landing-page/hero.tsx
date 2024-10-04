@@ -57,7 +57,7 @@ function Hero() {
                                 Siap PD ngobrol
                                 <span id="hero-custom-text" className="relative text-[#F1936B] px-1 md:px-3">
                                     Mandarin?</span>
-                                Guide Book Mandarin untuk hidup sehari-hari
+                                Guide Book <span className="text-[#F1936B]">Mandarin</span> untuk hidup sehari-hari
                             </h1>
                         </div>
                         <p className="font-mulish font-light md:font-medium text-xs md:text-base max-w-lg text-center md:text-left">
