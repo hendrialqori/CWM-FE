@@ -18,9 +18,10 @@ function ProductDelete({ id, onClose }: Props) {
             onSuccess: () => {
                 toast.success(`Success delete product`, { position: "top-right" })
                 onClose()
-                
+
                 setTimeout(() => {
                     queryClient.invalidateQueries({ queryKey: ["PRODUCT/LIST"] })
+                    queryClient.invalidateQueries({ queryKey: ["TRANSACTION/LIST"] })
                 }, 500)
             },
             onError: (error) => {

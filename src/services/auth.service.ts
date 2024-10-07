@@ -1,7 +1,21 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import axios, { type AxiosError } from "axios"
+import axios, { AxiosError } from "axios"
 import { API } from "#/constants";
 import type { Auth, Success, Error } from "#/@type";
+
+type Params = Pick<Auth, "email" | "password">
+
+export async function login({ email, password }: Params): Promise<Success<{ access_token: string }> | undefined> {
+    const req = await axios.post(`${API}/auth/login`, { email, password }, {
+        withCredentials: true,
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    return await req.data
+}
+
 
 export async function getProfile(): Promise<Success<Auth>> {
     const req = await axios.get(`${API}/auth/profile`, {
@@ -14,25 +28,27 @@ export async function getProfile(): Promise<Success<Auth>> {
     return req.data
 }
 
-export function useLogin() {
-    type Params = Pick<Auth, "email" | "password">
+// export function useLogin() {
 
-    // login action
-    const POST = async ({ email, password }: Params) => {
-        const req = await axios.post(`${API}/auth/login`, { email, password }, {
-            withCredentials: true,
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
 
-        return await req.data
-    }
+//     // login action
+//     const POST = async ({ email, password }: Params) => {
+//         const req = await axios.post(`${API}/auth/login`, { email, password }, {
+//             withCredentials: true,
+//             headers: {
+//                 "Content-Type": "application/json"
+//             }
+//         })
 
-    return useMutation<Success<unknown>, AxiosError<Error>, Params>({
-        mutationFn: POST
-    })
-}
+//         return await req.data
+//     }
+
+//     return useMutation<Success<unknown>, AxiosError<Error>, Params>({
+//         mutationFn: POST
+//     })
+// }
+
+// login action
 
 export function useLogout() {
     const DELETE = async () => {

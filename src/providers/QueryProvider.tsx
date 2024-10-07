@@ -13,7 +13,7 @@ const queryClient = new QueryClient({
     }
 })
 
-export default function ClientProvider({ children }: Props) {
+export default function QueryProvider({ children }: Props) {
     return (
         <QueryClientProvider client={queryClient}>
             {children}

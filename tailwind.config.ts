@@ -16,7 +16,8 @@ const config: Config = {
       },
       fontFamily: {
         fredoka: ["var(--font-fredoka)"],
-        mulish: ["var(--font-mulish)"]
+        mulish: ["var(--font-mulish)"],
+        inter: ["var(--font-inter)"]
       },
       spacing: {
         space_between_section: "var(--space-between-section)",

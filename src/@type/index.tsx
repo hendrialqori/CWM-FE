@@ -27,8 +27,9 @@ export type Testimony = {
 
 export type Auth = {
     username: string;
-    email: string;
+    email?: string;
     password?: string;
+    access_token: string
     createdAt: string;
 }
 

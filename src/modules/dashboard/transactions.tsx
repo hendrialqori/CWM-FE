@@ -30,7 +30,7 @@ export default function Transactions() {
     }
 
     function nextPage() {
-        if (data?.meta.to ?? 0 === data?.meta.total_row ?? 0) {
+        if (data?.meta.to === data?.meta.total_row) {
             return
         }
         setCurrentPage((prev) => {

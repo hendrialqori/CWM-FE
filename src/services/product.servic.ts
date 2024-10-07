@@ -1,17 +1,18 @@
 import { useMutation, useQuery } from "@tanstack/react-query"
-import axios, { AxiosError } from "axios"
+import { useInstance } from "#/lib/axios-instance"
+import { type AxiosError } from "axios"
 import type { Success, Product, Error } from "#/@type"
-import { API } from "#/constants"
+
+type Params = { signal: AbortSignal }
 
 export function useGetProductList() {
-    type Params = { signal: AbortSignal }
+    const instance = useInstance()
+
 
     const GET = async ({ signal }: Params) => {
-        const req = await axios.get(`${API}/product/list`, {
-            withCredentials: true,
+        const req = await instance.get("/product/list", {
             signal
         })
-
         return req.data
     }
 
@@ -22,12 +23,10 @@ export function useGetProductList() {
 }
 
 export function useGetProduct({ id }: { id: number }) {
-
-    type Params = { signal: AbortSignal }
+    const instance = useInstance()
 
     const GET = async ({ signal }: Params) => {
-        const req = await axios.get(`${API}/product/${id}`, {
-            withCredentials: true,
+        const req = await instance.get(`/product/${id}`, {
             signal
         })
 
@@ -35,13 +34,15 @@ export function useGetProduct({ id }: { id: number }) {
     }
 
     return useQuery<Success<Product>, AxiosError<Error>>({
-        queryKey: [`PRODUCT/DETAIL`, id],
+        queryKey: ["PRODUCT/DETAIL", id],
         queryFn: GET,
         enabled: false
     })
 }
 
 export function useMutationProduct() {
+    const instance = useInstance()
+
     type PostParams = { formData: FormData }
 
     type DeleteParams = { id: number }
@@ -49,23 +50,17 @@ export function useMutationProduct() {
     type UpdateParams = PostParams & DeleteParams
 
     const POST = async ({ formData }: PostParams) => {
-        const req = await axios.post(`${API}/product/add`, formData, {
-            withCredentials: true
-        })
-
+        const req = await instance.post("/product/add", formData)
         return req.data
     }
 
     const UPDATE = async ({ id, formData }: UpdateParams) => {
-        const req = await axios.put(`${API}/product/${id}/update`, formData, {
-            withCredentials: true
-        })
-
+        const req = await instance.put(`/product/${id}/update`, formData)
         return req.data
     }
 
     const DELETE = async ({ id }: DeleteParams) => {
-        const req = await axios.delete(`${API}/product/${id}/remove`)
+        const req = await instance.delete(`/product/${id}/remove`)
         return req.data
     }
 

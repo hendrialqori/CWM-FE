@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server'
+import { NextRequest ,NextResponse } from 'next/server'
 // import type { NextRequest } from 'next/server'
 // import axios from "axios"
 // import { cookies } from 'next/headers'
@@ -7,15 +7,15 @@ import { NextResponse } from 'next/server'
 
 // const PREFIX = "/admin"
 
-// const protectRoute = [
-//     "/dashboard"
-// ]
+const protectRoute = [
+    "/admin/dashboard",
 
-export async function middleware() {
+]
 
+export async function middleware(_req: NextRequest) {
+    // const { pathname } = req.nextUrl
+    // console.log("current pathname => ", pathname)
     // const auth_cookie = request.cookies.get("auth-cookie")?.value
     // console.count(auth_cookie)
-
-
     return NextResponse.next()
 }

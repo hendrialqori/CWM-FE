@@ -15,35 +15,43 @@ import Input from "#/components/ui/input"
 import Portal from "#/components/ui/portal";
 
 import { loginFormScheme, type LoginFormType } from "#/validations/login-form-validation"
-import { useLogin } from "#/services/auth.service";
+import { signIn } from "next-auth/react";
+import { Error } from "#/@type";
 
 function LoginForm() {
     const { register, handleSubmit, formState: { errors } } = useForm<LoginFormType>({
         resolver: zodResolver(loginFormScheme)
     })
-    const router = useRouter()
-    const login = useLogin()
 
-    const submit = handleSubmit((state) => {
+    const router = useRouter()
+    const [isLoading, setLoading] = React.useState(false)
+
+    const submit = handleSubmit(async (state) => {
         const data = {
             email: state.email,
             password: state.password
         }
 
-        login.mutate(data, {
-            onSuccess: () => {
-                router.push("/admin/dashboard")
-            },
-            onError: (error) => {
-                const message = error.response?.data.errors as React.ReactNode
-                toast.error(message)
-            }
+        setLoading(true)
+        const res = await signIn("credentials", {
+            email: data.email,
+            password: data.password,
+            redirect: false
         })
+
+        if (!res?.ok) {
+            const error = JSON.parse(res?.error as string) as Error
+            toast.error(error.errors as string)
+            setLoading(false)
+            return
+        }
+
+        router.replace("/admin/dashboard")
     })
 
     return (
         <React.Fragment>
-            <Form onSubmit={submit} className="w-full space-y-3">
+            <Form onSubmit={submit} className="w-full space-y-3 font-inter">
                 <FormItem className="space-y-2">
                     {() => (
                         <React.Fragment>
@@ -82,14 +90,15 @@ function LoginForm() {
                 </FormItem>
                 <div className="pt-6">
                     <button
+                        disabled={isLoading}
                         className="w-full text-xs md:text-sm bg-black text-white rounded-lg py-2 h-10 outline-double active:outline-black"
-                        disabled={login.isPending}
+
                     >
                         Sign In
                     </button>
                 </div>
             </Form>
-            <Portal isOpen={login.isPending}>
+            <Portal isOpen={isLoading}>
                 <div className="text-white center-flex gap-2">
                     <p>Loading...</p>
                     <CgSpinner className="animate-spin text-xl" />
