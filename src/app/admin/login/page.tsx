@@ -1,6 +1,6 @@
 import Image from "next/image"
 import china_flag from "#/assets/svg/china-flag.svg?url"
-import { LoginForm } from "#/modules/admin-login/form"
+import { LoginForm } from "#/modules/login/form"
 
 export default function Login() {
     return (

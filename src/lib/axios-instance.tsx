@@ -1,25 +1,32 @@
-import { Auth } from "#/@type";
-import { API } from "#/constants";
 import axios from "axios";
-import { useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { API } from "#/constants";
+import { signOut } from "next-auth/react";
 
 export const useInstance = () => {
-    const { data } = useSession({
-        required: true,
-        onUnauthenticated() {
-            redirect("/admin/login")
-        }
-    })
-    const access_token = (data?.user as unknown as Auth | undefined)?.access_token
+    const request = (access_token: string) => {
+        const instance = axios.create({
+            baseURL: API,
+            timeout: 600000,
+            headers: {
+                "Authorization": `Bearer ${access_token}`
+            },
+            withCredentials: true
+        })
 
-    const instance = axios.create({
-        baseURL: API,
-        headers: {
-            "Authorization": `Bearer ${access_token}`
-        },
-        withCredentials: true
-    })
+        instance.interceptors.response.use(
+            (response) => response,
+            async (error) => {
+                const unauthorize = error.response.status === 401
+                if (unauthorize) {
+                    await signOut({ redirect: true, callbackUrl: "/admin/login" })
+                }
 
-    return instance
+                return Promise.reject(error)
+            }
+        )
+
+        return instance
+    }
+
+    return request
 }

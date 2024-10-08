@@ -1,9 +1,9 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios"
 import { API } from "#/constants";
-import type { Auth, Success, Error } from "#/@type";
+import type { Credential, Success, Error } from "#/@type";
 
-type Params = Pick<Auth, "email" | "password">
+type Params = Pick<Credential, "email" | "password">
 
 export async function login({ email, password }: Params): Promise<Success<{ access_token: string }> | undefined> {
     const req = await axios.post(`${API}/auth/login`, { email, password }, {
@@ -17,7 +17,7 @@ export async function login({ email, password }: Params): Promise<Success<{ acce
 }
 
 
-export async function getProfile(): Promise<Success<Auth>> {
+export async function getProfile(): Promise<Success<Credential>> {
     const req = await axios.get(`${API}/auth/profile`, {
         withCredentials: true,
         headers: {
@@ -64,7 +64,7 @@ export function useLogout() {
 export function useProfile() {
     const GET = getProfile
 
-    return useQuery<Success<Auth>, AxiosError<Error>>({
+    return useQuery<Success<Credential>, AxiosError<Error>>({
         queryKey: ["PROFILE"],
         queryFn: GET,
         staleTime: 1 * (60 * 1000)

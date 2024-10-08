@@ -25,7 +25,8 @@ export type Testimony = {
     person: { name: string, age: number; job: string }
 }
 
-export type Auth = {
+export type Credential = {
+    id: number;
     username: string;
     email?: string;
     password?: string;

@@ -23,7 +23,7 @@ function Content({ children }: { children: React.ReactNode }) {
                 className="absolute inset-0 bg-black/80 z-1"
                 aria-label="overlay" />
         </motion.section>,
-        document.body
+        document?.body
     )
 }
 

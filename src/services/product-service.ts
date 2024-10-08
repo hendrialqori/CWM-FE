@@ -2,17 +2,19 @@ import { useMutation, useQuery } from "@tanstack/react-query"
 import { useInstance } from "#/lib/axios-instance"
 import { type AxiosError } from "axios"
 import type { Success, Product, Error } from "#/@type"
+import { useCredential } from "#/lib/credential"
 
 type Params = { signal: AbortSignal }
 
 export function useGetProductList() {
     const instance = useInstance()
-
+    const { credential } = useCredential()
 
     const GET = async ({ signal }: Params) => {
-        const req = await instance.get("/product/list", {
-            signal
-        })
+        const req = await instance(credential?.access_token ?? "")
+            .get("/product/list", {
+                signal
+            })
         return req.data
     }
 
@@ -24,11 +26,13 @@ export function useGetProductList() {
 
 export function useGetProduct({ id }: { id: number }) {
     const instance = useInstance()
+    const { credential } = useCredential()
 
     const GET = async ({ signal }: Params) => {
-        const req = await instance.get(`/product/${id}`, {
-            signal
-        })
+        const req = await instance(credential?.access_token ?? "")
+            .get(`/product/${id}`, {
+                signal
+            })
 
         return req.data
     }
@@ -42,25 +46,27 @@ export function useGetProduct({ id }: { id: number }) {
 
 export function useMutationProduct() {
     const instance = useInstance()
+    const { credential } = useCredential()
 
     type PostParams = { formData: FormData }
-
     type DeleteParams = { id: number }
-
     type UpdateParams = PostParams & DeleteParams
 
     const POST = async ({ formData }: PostParams) => {
-        const req = await instance.post("/product/add", formData)
+        const req = await instance(credential?.access_token ?? "")
+            .post("/product/add", formData)
         return req.data
     }
 
     const UPDATE = async ({ id, formData }: UpdateParams) => {
-        const req = await instance.put(`/product/${id}/update`, formData)
+        const req = await instance(credential?.access_token ?? "")
+            .put(`/product/${id}/update`, formData)
         return req.data
     }
 
     const DELETE = async ({ id }: DeleteParams) => {
-        const req = await instance.delete(`/product/${id}/remove`)
+        const req = await instance(credential?.access_token ?? "")
+            .delete(`/product/${id}/remove`)
         return req.data
     }
 

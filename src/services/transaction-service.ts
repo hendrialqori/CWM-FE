@@ -3,6 +3,7 @@ import { type AxiosError } from "axios"
 import type { Success, Error, Transaction } from "#/@type"
 import { API } from "#/constants"
 import { useInstance } from "#/lib/axios-instance"
+import { useCredential } from "#/lib/credential"
 
 type Query = {
     page: number;
@@ -13,6 +14,7 @@ type Query = {
 
 export function useGetTransactiontList(query: Query) {
     const instance = useInstance()
+    const { credential } = useCredential()
 
     type Params = { signal: AbortSignal }
 
@@ -23,9 +25,10 @@ export function useGetTransactiontList(query: Query) {
     queries.set("end_date", query.end_date)
 
     const GET = async ({ signal }: Params) => {
-        const req = await instance.get(`${API}/transaction/list?${queries.toString()}`, {
-            signal
-        })
+        const req = await instance(credential?.access_token ?? "")
+            .get(`${API}/transaction/list?${queries.toString()}`, {
+                signal
+            })
         return req.data
     }
 

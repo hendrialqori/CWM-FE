@@ -4,7 +4,7 @@ import React from "react";
 import Datepicker from "#/components/ui/date-picker";
 import Flow from "#/components/control-flow";
 import { DateType, type DateValueType } from "react-tailwindcss-datepicker";
-import { useGetTransactiontList } from "#/services/transaction.service";
+import { useGetTransactiontList } from "#/services/transaction-service";
 import { Pagination } from "./transaction-pagination";
 import { TableData, TableSkeleton } from "./transaction-table";
 import dayjs from "dayjs";

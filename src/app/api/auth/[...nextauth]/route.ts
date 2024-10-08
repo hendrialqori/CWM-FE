@@ -1,15 +1,11 @@
 import { AxiosError } from "axios";
-import { AuthOptions, Session, type User } from "next-auth";
+import { User } from "next-auth";
 import NextAuth from "next-auth/next";
-import { jwtDecode } from "jwt-decode"
-import { login } from "#/services/auth.service";
+import { login } from "#/services/auth-service";
 import CredentialsProvider from "next-auth/providers/credentials";
-import type { Auth, Error } from "#/@type";
+import type { Error, Credential } from "#/@type";
 
-type Token = { access_token: string }
-type Credential = User & Token
-
-export const authOption: AuthOptions = {
+const handler = NextAuth({
     providers: [
         CredentialsProvider({
             name: "Credentials",
@@ -23,8 +19,7 @@ export const authOption: AuthOptions = {
 
                 try {
                     const res = await login({ email, password })
-                    const access_token = res?.data.access_token
-                    return { access_token } as unknown as Credential
+                    return res?.data as unknown as User
 
                 } catch (error) {
                     const err = error as AxiosError<Error>
@@ -37,36 +32,26 @@ export const authOption: AuthOptions = {
         signIn: "/admin/login",
         signOut: "/admin/login"
     },
-    session: {
-        strategy: "jwt"
-    },
+    secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
         jwt: (props) => {
-            const user = props.user as Credential
-            const token = props.token as Token
+            const user = props.user as unknown as Credential | undefined
+            const token = props.token as unknown as Credential
 
             if (user?.access_token) {
                 token.access_token = user?.access_token
-                console.log(user.access_token)
             }
-            return token
+            return { ...token, ...user }
         },
         async session(props) {
-            const session = props.session as Session
-            const token = props.token as Token
-            const { email, username, createdAt } = jwtDecode(token.access_token) as Auth
-
+            const session = props.session
+            const token = props.token
             // Save the JWT token to the session object
-            session.user = {
-                email, username, createdAt,
-                access_token: token.access_token
-            } as Auth
+            session.user = token as typeof session.user
 
             return session;
-        },
+        }
     }
-}
-
-const handler = NextAuth(authOption)
+})
 
 export { handler as GET, handler as POST }

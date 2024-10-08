@@ -11,7 +11,7 @@ import { addProductScheme, updateProductScheme, type AddProductType } from "#/va
 import Input from "#/components/ui/input"
 import { cn, sanitizedNonDigits, priceFormat } from "#/lib/utils"
 import { IoMdClose } from "react-icons/io"
-import { useGetProduct, useMutationProduct } from "#/services/product.servic"
+import { useGetProduct, useMutationProduct } from "#/services/product-service"
 import { toast } from "sonner"
 import ButtonSpin from "#/components/ui/button-spin"
 import { STATIC } from "#/constants"
@@ -44,18 +44,21 @@ function ProductForm({ id, type, onClose, }: Props) {
     const { refetch: refectProductId } = useGetProduct({ id: Number(id) })
     const { postMutation, updateMutation } = useMutationProduct()
 
-    async function fillStateWhenUpdate() {
-        const { data: product } = await refectProductId()
-        setImagePreview(product?.data.image ?? "")
-        setValue("name", product?.data.title ?? "")
-        setValue("originalPrice", numberFormat(product?.data.originalPrice.toString() ?? ""))
-        setValue("strikeoutPrice", numberFormat(product?.data.strikeoutPrice.toString() ?? ""))
-        setValue("description", product?.data.description ?? "")
-    }
+    const fillStateWhenUpdate = React.useCallback(async () => {
+        const { data: product, isSuccess } = await refectProductId()
+        if (isSuccess) {
+            setImagePreview(product?.data.image ?? "")
+            setValue("name", product?.data.title ?? "")
+            setValue("originalPrice", numberFormat(product?.data.originalPrice.toString() ?? ""))
+            setValue("strikeoutPrice", numberFormat(product?.data.strikeoutPrice.toString() ?? ""))
+            setValue("description", product?.data.description ?? "")
+        }
+        // eslint-disable-next-line
+    }, [refectProductId])
 
     React.useEffect(() => {
         if (type === "UPDATE") fillStateWhenUpdate()
-    }, [id, type])
+    }, [type, fillStateWhenUpdate])
 
     function handleChangeImage() {
         setChangeImage(true)
@@ -121,7 +124,7 @@ function ProductForm({ id, type, onClose, }: Props) {
             case "UPDATE":
                 updateProduct(formData)
             default:
-                console.error("No one type matching")
+                return
         }
     })
 

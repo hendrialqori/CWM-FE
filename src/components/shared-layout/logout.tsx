@@ -15,7 +15,6 @@ export function Logout({ onClose }: Props) {
     async function logoutAction() {
         setLoading(true)
         await signOut({ redirect: true, callbackUrl: "/admin/login" })
-
     }
 
     return (

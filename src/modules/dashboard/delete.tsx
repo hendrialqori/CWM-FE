@@ -1,6 +1,6 @@
 import ButtonSpin from "#/components/ui/button-spin"
 import { cn } from "#/lib/utils"
-import { useMutationProduct } from "#/services/product.servic"
+import { useMutationProduct } from "#/services/product-service"
 import { useQueryClient } from "@tanstack/react-query"
 import { toast } from "sonner"
 
