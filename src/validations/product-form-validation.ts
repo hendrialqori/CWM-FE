@@ -16,6 +16,8 @@ export const addProductScheme = z.object({
     strikeoutPrice: z.string()
         .min(1, { message: "Required" })
         .transform((price) => price.replaceAll(",", "")),
+    isOffer: z.boolean().default(false),
+    link: z.string().min(1, { message: "Required" }),
     description: z.string()
 })
 
@@ -27,6 +29,8 @@ export const updateProductScheme = z.object({
     strikeoutPrice: z.string()
         .min(1, { message: "Required" })
         .transform((price) => price.replaceAll(",", "")),
+    isOffer: z.boolean().default(false).optional(),
+    link: z.string().min(1, { message: "Required" }),
     description: z.string().min(1, { message: "Required" })
 })
 

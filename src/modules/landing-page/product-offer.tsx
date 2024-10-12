@@ -7,7 +7,7 @@ import rocket_shape from "#/assets/svg/rocket-shape.svg?url"
 import orange_circle_shape from "#/assets/svg/orange-circle-shape.svg?url"
 import green_circle_shape from "#/assets/svg/green-circle-shape.svg?url"
 import ahalf_orange_shape from "#/assets/svg/ahafl-orange-shape.svg?url"
-import { ProductOfferCheckoutAction } from "./product-offer-checkout-action";
+import { ProductOfferCheckout } from "./product-offer-checkout";
 
 function BlurEffectBackground() {
     return (
@@ -104,19 +104,10 @@ function ProductOffer() {
                         </p>
                     </div>
                 </div>
-                <div className="relative space-y-14">
+                <div className="relative">
                     <BlurEffectBackground />
-                    <div className="text-center">
-                        <h4 className="font-fredoka text-base md:text-2xl font-bold">All Guide book ini bisa kamu dapatkan dengan harga</h4>
-                        <p className="font-mulish line-through font-medium text-lg md:text-2xl">Rp. 399,000</p>
-                    </div>
-                    <div className="relative text-center z-[2]">
-                        <p className="font-mulish font-semibold text-[#5D5D5D] text-sm md:text-base">Harga spesial hari ini!</p>
-                        <h3 className="font-fredoka text-3xl md:text-6xl font-bold">Rp. 149.000,-</h3>
-                    </div>
-                    {/* button checkout */}
-                    <ProductOfferCheckoutAction />
-
+                    {/* checkout product offer */}
+                    <ProductOfferCheckout />
                     {/* shape */}
                     <OrangeCircleShape />
                 </div>

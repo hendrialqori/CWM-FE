@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Product } from "#/@type";
 import { cn, priceFormat } from "#/lib/utils";
 import { FiShoppingCart } from "react-icons/fi";
-// import { STATIC } from "#/constants";
+import { STATIC } from "#/constants";
 import Portal from "#/components/ui/portal";
 import { Checkout } from "./checkout";
 
@@ -29,8 +29,8 @@ function ProductCard(props: Product) {
             <figure className="bg-white rounded-2xl overflow-hidden shadow-md z-[3]">
                 <div className="bg-[#F5F5F5] flex justify-center items-center" aria-label="image-wrapper">
                     <Image
-                        // src={STATIC + "/" + props.image}
-                        src={props.image}
+                        src={STATIC + "/" + props.image}
+                        // src={props.image}
                         width={303}
                         height={300}
                         alt="product-pannel"

@@ -10,6 +10,8 @@ import { ProductForm } from "./form";
 import { ProductDelete } from "./delete";
 import { Product } from "#/@type";
 import { STATIC } from "#/constants";
+import { RiVerifiedBadgeFill } from "react-icons/ri";
+import { toast } from "sonner";
 
 const modalState = {
     update: false,
@@ -20,8 +22,16 @@ function ProductCard(props: Product) {
     const [modal, setModal] = React.useState(modalState)
     const [expand, setExpand] = React.useState(false)
 
-    function showModalAction(type: "update" | "delete") {
-        return () => setModal(({ ...modalState, [type]: true }))
+    function updateProduct() {
+        setModal({ ...modalState, update: true })
+    }
+
+    function deleteProduct() {
+        if (props.isOffer) {
+            toast.warning("Product offer cannot be delete", { position: "top-right" })
+            return
+        }
+        setModal({ ...modalState, delete: true })
     }
 
     function truncateDescription(text: string) {
@@ -40,7 +50,7 @@ function ProductCard(props: Product) {
     return (
         <>
             <figure className="bg-white rounded-2xl overflow-hidden shadow-md z-[3] w-full">
-                <div className="bg-[#F5F5F5] flex justify-center items-center" aria-label="image-wrapper">
+                <div className="relative bg-[#F5F5F5] flex justify-center items-center" aria-label="image-wrapper">
                     <Image
                         src={`${STATIC}/${props.image}`}
                         width={303}
@@ -49,6 +59,12 @@ function ProductCard(props: Product) {
                         className="object-cover h-60 w-full"
                         priority
                     />
+                    {props.isOffer && (
+                        <div className="absolute center-flex gap-1 bg-green-200 bottom-2 left-2 rounded-3xl px-3 py-1 shadow-xl">
+                            <p className="text-xs md:text-sm font-medium">Product Offer</p>
+                            <RiVerifiedBadgeFill className="text-green-600" />
+                        </div>
+                    )}
                 </div>
                 <figcaption className="space-y-5 px-5 py-6">
                     <div className="space-y-2" aria-label="title & discription">
@@ -58,7 +74,7 @@ function ProductCard(props: Product) {
                             <span
                                 role="button"
                                 tabIndex={-1}
-                                className={`${expand && "text-black"} hover:underline cursor-pointer`}
+                                className={`${expand && "text-black"} hover:underline cursor-pointer select-none`}
                                 onClick={toggleExpandAction}
                             >
                                 {expand ? "[show less]" : "[read more]"}
@@ -73,13 +89,13 @@ function ProductCard(props: Product) {
                         <div className="space-x-4">
                             <button
                                 className="bg-[#F8F8F8] border border-[#DBDBDB] rounded-md p-[2px] hover:outline-double hover:outline-black"
-                                onClick={showModalAction("update")}
+                                onClick={updateProduct}
                             >
                                 <TbPencil className="text-2xl" />
                             </button>
                             <button
                                 className="bg-[#F8F8F8] border border-[#DBDBDB] rounded-md p-[2px] hover:outline-double hover:outline-black"
-                                onClick={showModalAction("delete")}
+                                onClick={deleteProduct}
                             >
                                 <FiTrash className="text-2xl" />
                             </button>

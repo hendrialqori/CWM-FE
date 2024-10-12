@@ -35,11 +35,13 @@ export type Credential = {
 }
 
 export type Product = {
-    id: number,
+    id: string,
     title: string,
     image: string,
     originalPrice: number,
     strikeoutPrice: number,
+    isOffer?: boolean,
+    link?: string,
     description?: string,
     createdAt?: string | Date,
     updatedAt?: string | Date
@@ -47,10 +49,13 @@ export type Product = {
 
 export type Transaction = {
     id: 8,
+    name: string;
     email: string,
     phone: number,
     status: string | null,
-    product: Product
+    product: Product,
+    invoiceId: string;
+    invoiceUrl: string;
     createdAt: string,
     updatedAt: string
 }

@@ -14,7 +14,7 @@ function Info({ property, value }: { property: string, value: string }) {
     return (
         <div aria-label="information item">
             <h2 className="text-sm font-bold -tracking-wider select-none">{property}</h2>
-            <p className="text-sm font-medium leading-4">{value}</p>
+            <p className="text-sm font-medium leading-4 text-gray-600">{value}</p>
         </div>
     )
 }
@@ -41,15 +41,16 @@ export function Preview({ transaction, onClose }: Props) {
                     </div>
                 </div>
             </div>
-            <div className="px-5 py-6 font-mulish space-y-3">
+            <div className="px-5 pt-6 pb-8 font-mulish space-y-3">
                 <div className="flex justify-between items-center">
                     <h2 className="font-bold -tracking-wider">Transaction detail</h2>
                     <button onClick={onClose}>
                         <IoMdClose className="text-xl" />
                     </button>
                 </div>
-                <div className="space-y-2" aria-label="transcation information">
-                    <Info property="ID Transaction" value={transaction?.id.toString() ?? "-"} />
+                <div className="space-y-3" aria-label="transcation information">
+                    <Info property="Invoice ID" value={transaction?.invoiceId ?? "-"} />
+                    <Info property="Name" value={transaction?.name ?? "-"} />
                     <Info property="Email" value={transaction?.email ?? "-"} />
                     <Info property="Phone" value={transaction?.phone.toString() ?? "-"} />
                     <Info property="Time" value={dayjs(transaction?.createdAt)
@@ -57,7 +58,7 @@ export function Preview({ transaction, onClose }: Props) {
                         .format("ddd, DD MMMM YYYY HH:mm")
                     } />
                     <Info property="Status" value={transaction?.status ?? "-"} />
-                    <Info property="Link download" value="https://orm.drizzle.team/learn/guides/limit-offset-pagination" />
+                    <Info property="Invoice link" value={transaction?.invoiceUrl ?? "-"} />
                 </div>
             </div>
         </div>

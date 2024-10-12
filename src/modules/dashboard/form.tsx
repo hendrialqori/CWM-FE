@@ -11,9 +11,10 @@ import { addProductScheme, updateProductScheme, type AddProductType } from "#/va
 import Input from "#/components/ui/input"
 import { cn, sanitizedNonDigits, priceFormat } from "#/lib/utils"
 import { IoMdClose } from "react-icons/io"
-import { useGetProduct, useMutationProduct } from "#/services/product-service"
+import { useProduct, useProductMutation } from "#/services/product-service"
 import { toast } from "sonner"
 import ButtonSpin from "#/components/ui/button-spin"
+import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { STATIC } from "#/constants"
 
 type Props = {
@@ -34,15 +35,15 @@ function ProductForm({ id, type, onClose, }: Props) {
     const [isChangeImage, setChangeImage] = React.useState(false)
 
     const { register, handleSubmit,
-        formState: { errors }, setValue, reset } = useForm<AddProductType>({
+        formState: { errors }, getValues, setValue, reset } = useForm<AddProductType>({
             resolver: zodResolver(
                 isChangeImage || type === "CREATE"
                     ? addProductScheme : updateProductScheme
             )
         })
 
-    const { refetch: refectProductId } = useGetProduct({ id: Number(id) })
-    const { postMutation, updateMutation } = useMutationProduct()
+    const { refetch: refectProductId } = useProduct({ id: Number(id) })
+    const { postMutation, updateMutation } = useProductMutation()
 
     const fillStateWhenUpdate = React.useCallback(async () => {
         const { data: product, isSuccess } = await refectProductId()
@@ -51,6 +52,8 @@ function ProductForm({ id, type, onClose, }: Props) {
             setValue("name", product?.data.title ?? "")
             setValue("originalPrice", numberFormat(product?.data.originalPrice.toString() ?? ""))
             setValue("strikeoutPrice", numberFormat(product?.data.strikeoutPrice.toString() ?? ""))
+            setValue("isOffer", Boolean(product?.data.isOffer))
+            setValue("link", product?.data.link ?? "")
             setValue("description", product?.data.description ?? "")
         }
         // eslint-disable-next-line
@@ -115,6 +118,8 @@ function ProductForm({ id, type, onClose, }: Props) {
         formData.append("title", state.name)
         formData.append("originalPrice", state.originalPrice)
         formData.append("strikeoutPrice", state.strikeoutPrice)
+        formData.append("isOffer", Number(state.isOffer).toString())
+        formData.append("link", state.link)
         formData.append("description", state.description)
 
         switch (type) {
@@ -138,13 +143,13 @@ function ProductForm({ id, type, onClose, }: Props) {
                     <IoMdClose className="text-xl" />
                 </button>
             </div>
-            <Form onSubmit={submit} className="w-full space-y-4">
+            <Form onSubmit={submit} className="w-full space-y-5">
                 <FormItem>
                     {(id) => (
                         !isChangeImage && type === "UPDATE" ?
                             <div className="center-flex gap-x-3 justify-start">
                                 <Image src={`${STATIC}/${imagePreview}`}
-                                    className="h-12 object-contain rounded-lg" width={40} height={40} alt="preview-avatar" />
+                                    className="h-12 object-contain rounded-lg aspect-auto" width={40} height={40} alt="preview-avatar" />
                                 <button
                                     className={cn(
                                         "px-4 text-xs font-medium select-none",
@@ -219,6 +224,47 @@ function ProductForm({ id, type, onClose, }: Props) {
                 <FormItem>
                     {(id) => (
                         <React.Fragment>
+                            <FormLabel htmlFor={id}>Discounted price</FormLabel>
+                            <Input
+                                id={id}
+                                className="bg-[#F4F4F4]"
+                                placeholder="Rp."
+                                {...register("strikeoutPrice", {
+                                    onChange: (event) => {
+                                        const value = event.target.value
+                                        const price = numberFormat(value)
+                                        setValue("strikeoutPrice", price)
+                                    }
+                                })}
+                                aria-invalid={Boolean(errors.strikeoutPrice?.message)}
+                            />
+                            <FormFieldError>
+                                {errors.originalPrice?.message}
+                            </FormFieldError>
+                        </React.Fragment>
+                    )}
+                </FormItem>
+                <FormItem className="flex flex-col justify-start gap-1">
+                    {(id) => (
+                        <React.Fragment>
+                            <div className="center-flex justify-start">
+                                <FormLabel htmlFor={id}>Is offer product</FormLabel>
+                                <RiVerifiedBadgeFill className="text-green-600" />
+                            </div>
+                            <input
+                                id={id}
+                                className="bg-[#F4F4F4] size-4 rounded-lg accent-black"
+                                type="checkbox"
+                                {...register("isOffer")}
+                                aria-invalid={Boolean(errors.strikeoutPrice?.message)}
+                            />
+                            <FormFielDescription>When checked will be display at product offer section</FormFielDescription>
+                        </React.Fragment>
+                    )}
+                </FormItem>
+                <FormItem>
+                    {(id) => (
+                        <React.Fragment>
                             <FormLabel htmlFor={id}>Strikethrough price</FormLabel>
                             <Input
                                 id={id}
@@ -235,6 +281,23 @@ function ProductForm({ id, type, onClose, }: Props) {
                             />
                             <FormFieldError>
                                 {errors.originalPrice?.message}
+                            </FormFieldError>
+                        </React.Fragment>
+                    )}
+                </FormItem>
+                <FormItem>
+                    {(id) => (
+                        <React.Fragment>
+                            <FormLabel htmlFor={id}>Product link</FormLabel>
+                            <Input
+                                id={id}
+                                className="bg-[#F4F4F4]"
+                                placeholder="Exp: https://docs.google.com/spreadsheets/d/1c7bIGK18wp2Zby4KXrzrimg5EsDBg16a2LFaO6HbKH0/edit?usp=sharing"
+                                {...register("link")}
+                                aria-invalid={Boolean(errors.link?.message)}
+                            />
+                            <FormFieldError>
+                                {errors.link?.message}
                             </FormFieldError>
                         </React.Fragment>
                     )}

@@ -1,18 +1,47 @@
 import { useMutation, useQuery } from "@tanstack/react-query"
 import { useInstance } from "#/lib/axios-instance"
-import { type AxiosError } from "axios"
-import type { Success, Product, Error } from "#/@type"
+import axios, { type AxiosError } from "axios"
+import type { Product, Success, Error } from "#/@type"
 import { useCredential } from "#/lib/credential"
+import { API } from "#/constants"
 
 type Params = { signal: AbortSignal }
 
-export function useGetProductList() {
+export function useProductListPublic() {
+    const GET = async ({ signal }: Params) => {
+        const req = await axios.get(`${API}/product/list/public`, {
+            signal
+        })
+        return req.data
+    }
+
+    return useQuery<Success<Product[]>, AxiosError<Error>>({
+        queryKey: ["PRODUCT/LIST/PUBLIC"],
+        queryFn: GET
+    })
+}
+
+export function useProductOfferPublic() {
+    const GET = async ({ signal }: Params) => {
+        const req = await axios.get(`${API}/product/offer/public`, {
+            signal
+        })
+        return req.data
+    }
+
+    return useQuery<Success<Product>, AxiosError<Error>>({
+        queryKey: ["PRODUCT/OFFER/PUBLIC"],
+        queryFn: GET
+    })
+}
+
+export function useProductList() {
     const instance = useInstance()
     const { credential } = useCredential()
 
-    const GET = async ({ signal }: Params) => {
+    const LIST = async ({ signal }: Params) => {
         const req = await instance(credential?.access_token ?? "")
-            .get("/product/list", {
+            .get(`${API}/product/list`, {
                 signal
             })
         return req.data
@@ -20,11 +49,11 @@ export function useGetProductList() {
 
     return useQuery<Success<Product[]>, AxiosError<Error>>({
         queryKey: ["PRODUCT/LIST"],
-        queryFn: GET
+        queryFn: LIST
     })
 }
 
-export function useGetProduct({ id }: { id: number }) {
+export function useProduct({ id }: { id: number }) {
     const instance = useInstance()
     const { credential } = useCredential()
 
@@ -44,7 +73,8 @@ export function useGetProduct({ id }: { id: number }) {
     })
 }
 
-export function useMutationProduct() {
+
+export function useProductMutation() {
     const instance = useInstance()
     const { credential } = useCredential()
 

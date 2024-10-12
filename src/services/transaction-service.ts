@@ -1,9 +1,10 @@
-import { useQuery } from "@tanstack/react-query"
-import { type AxiosError } from "axios"
-import type { Success, Error, Transaction } from "#/@type"
+import { useMutation, useQuery } from "@tanstack/react-query"
+import axios, { type AxiosError } from "axios"
+import type { Success, Error, Transaction, Credential } from "#/@type"
 import { API } from "#/constants"
 import { useInstance } from "#/lib/axios-instance"
 import { useCredential } from "#/lib/credential"
+import { CheckoutFormType } from "#/validations/checkout-form-validation"
 
 type Query = {
     page: number;
@@ -38,3 +39,20 @@ export function useGetTransactiontList(query: Query) {
     })
 }
 
+export function useCreateInvoice() {
+    type CreateInvoice = Omit<CheckoutFormType, "confirmEmail"> & {
+        productId: string,
+    }
+
+    const POST = async (invoice: CreateInvoice) => {
+        const req = await axios.post(`${API}/payment/invoice/create`, invoice)
+        return req.data
+    }
+
+    return useMutation<
+        Success<{ invoiceUrl: string }>,
+        AxiosError<Error>,
+        CreateInvoice>({
+            mutationFn: POST
+        })
+}

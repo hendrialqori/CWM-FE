@@ -87,7 +87,7 @@ function Testimonial() {
                 {/* <BlueShape /> */}
             </div>
             <div className="landing-page-container2nd space-y-10 md:space-y-20 py-7 md:py-14 relative">
-                <div className="center-flex flex-col" aria-label="title">
+                <div className="center-flex flex-col space-y-0 md:space-y-2" aria-label="title">
                     <h2 className="font-fredoka font-bold text-xl md:text-[2rem]">Apa kata Mereka?</h2>
                     <p className="font-mulish text-sm md:text-xl font-medium text-[#5D5D5D]">lihat pengalaman yang mereka dapatkan</p>
                 </div>

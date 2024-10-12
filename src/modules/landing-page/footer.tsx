@@ -35,8 +35,8 @@ function Footer() {
                     <h2 className="font-fredoka font-bold text-lg md:text-3xl leading-[150%]">BEST DEAL Beli sekarang ​dan dapatkan GRATIS ​update konten selamanya !</h2>
                     <button
                         className="relative w-max bg-black rounded-lg center-flex gap-2 text-white px-6 py-2 z-[2] outline-double active:outline-black">
-                        <p className="text-xl font-mulish font-medium">Beli sekarang</p>
-                        <FiShoppingCart className="text-xl" />
+                        <p className="text-sm md:text-xl font-mulish font-medium">Beli sekarang</p>
+                        <FiShoppingCart className="text-base md:text-xl" />
                     </button>
                 </div>
                 <div className="space-y-5" aria-label="right-side">

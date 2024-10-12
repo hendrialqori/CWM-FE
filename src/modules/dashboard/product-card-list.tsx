@@ -1,12 +1,12 @@
 "use client"
 
-import { useGetProductList } from "#/services/product-service";
+import { useProductList } from "#/services/product-service";
 import { ProductCard, ProductCardSkeleton } from "./product-card";
 import { ButtonAddProduct } from "./button-add-product";
 import Flow from "#/components/control-flow";
 
 export default function ProductCardList() {
-    const { data: products, isPending, isSuccess } = useGetProductList()
+    const { data: products, isPending, isSuccess } = useProductList()
 
     return (
         <div className="space-y-10" aria-label="manage product container">

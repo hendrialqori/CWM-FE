@@ -1,6 +1,6 @@
 import ButtonSpin from "#/components/ui/button-spin"
 import { cn } from "#/lib/utils"
-import { useMutationProduct } from "#/services/product-service"
+import { useProductMutation } from "#/services/product-service"
 import { useQueryClient } from "@tanstack/react-query"
 import { toast } from "sonner"
 
@@ -11,7 +11,7 @@ type Props = {
 
 function ProductDelete({ id, onClose }: Props) {
     const queryClient = useQueryClient()
-    const { deleteMutation } = useMutationProduct()
+    const { deleteMutation } = useProductMutation()
 
     const deleteProduct = () => {
         deleteMutation.mutate({ id }, {

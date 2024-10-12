@@ -19,7 +19,7 @@ function badgeColor(value: string) {
     switch (value) {
         case "PENDING":
             return `bg-yellow-300 ${baseClass}`
-        case "SUCCESS":
+        case "SETTLED":
             return `bg-green-400 text-white ${baseClass}`
         case "FAILED":
             return `bg-red-600 text-white ${baseClass}`
