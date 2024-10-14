@@ -70,7 +70,6 @@ export function Checkout(props: Props) {
                 <div className="bg-gray-200">
                     <div className="h-[180px] md:h-[220px]">
                         <Image
-                            // src={props.image}
                             src={STATIC + "/" + props.image}
                             width={500}
                             height={500}
@@ -116,7 +115,7 @@ export function Checkout(props: Props) {
                                         id={id}
                                         {...register("phone", { valueAsNumber: true })}
                                         type="number"
-                                        placeholder="Example: 6289677557221"
+                                        placeholder="Example: 089677557221"
                                         aria-invalid={Boolean(errors.phone?.message)}
                                         className="bg-gray-100"
                                     />

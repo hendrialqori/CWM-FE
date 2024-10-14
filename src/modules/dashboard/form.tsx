@@ -265,29 +265,6 @@ function ProductForm({ id, type, onClose, }: Props) {
                 <FormItem>
                     {(id) => (
                         <React.Fragment>
-                            <FormLabel htmlFor={id}>Strikethrough price</FormLabel>
-                            <Input
-                                id={id}
-                                className="bg-[#F4F4F4]"
-                                placeholder="Rp."
-                                {...register("strikeoutPrice", {
-                                    onChange: (event) => {
-                                        const value = event.target.value
-                                        const price = numberFormat(value)
-                                        setValue("strikeoutPrice", price)
-                                    }
-                                })}
-                                aria-invalid={Boolean(errors.strikeoutPrice?.message)}
-                            />
-                            <FormFieldError>
-                                {errors.originalPrice?.message}
-                            </FormFieldError>
-                        </React.Fragment>
-                    )}
-                </FormItem>
-                <FormItem>
-                    {(id) => (
-                        <React.Fragment>
                             <FormLabel htmlFor={id}>Product link</FormLabel>
                             <Input
                                 id={id}
