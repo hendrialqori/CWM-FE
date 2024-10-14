@@ -21,41 +21,46 @@ function FAQ() {
     return (
         <section className="py-20 md:py-24 relative overflow-hidden">
             <BlueCircleShape />
-            <div className="landing-page-container2nd grid grid-cols-1 md:grid-cols-2 gap-14">
+            <div className="landing-page-container2nd grid grid-cols-1 lg:grid-cols-2 gap-14">
                 <div className="flex flex-col items-center space-y-2">
                     <div className="text-center space-y-2">
                         <h2 className="font-fredoka font-bold text-xl md:text-[2rem]">Frequently Asked Questions</h2>
                         <h3 className="font-fredoka font-bold text-sm md:text-xl text-[#5D5D5D]">Meggie jawab pertanyaan kalian</h3>
                     </div>
                     <Image
-                        src="/image/meggie-1.png"
+                        src="/image/faq.png"
                         alt="faq"
                         height={497}
                         width={392}
-                        className="w-5/12"
+                        className="w-6/12"
                     />
                 </div>
-                <div className="space-y-10" aria-label="description">
+                <div className="" aria-label="description">
                     <Dropdown
-                        ask="Apakah ebook ini cocok untuk pemula ?"
-                        answer="Tentu saja! Ebook ini dirancang untuk semua level, termasuk pemula. Materinya mudah dipahami dan langsung bisa dipraktikkan!"
+                        ask="1. Apakah guide book ini cocok untuk pemula?"
+                        answer="Tentu saja! guide book ini dirancang untuk semua level, termasuk pemula. Materinya mudah dipahami dan langsung bisa dipraktikkan!"
                     />
                     <Dropdown
-                        ask="Berapa lama saya bisa mulai berbicara Mandarin setelah membaca ebook ini ?"
-                        answer="Dengan latihan rutin, banyak pengguna melaporkan bisa ngobrol dasar dalam waktu singkat! Setiap orang berbeda, tapi ebook ini akan membantu mempercepat proses belajar kamu"
+                        ask="2. Berapa lama supaya aku bisa ngobrol dengan Bahasa Mandarin setelah belajar dari guide book ini?"
+                        answer="Banyak loh dari temen-temen yang udah beli guide book ini bilang kalo kalian rajin latihan, Bahasa Mandarinnya pasti bisa kepake banget! Setiap orang proses belajar pastinya beda-beda ya, tapi guide book ini bakal ngebantu mempercepat proses belajar kamu."
                     />
                     <Dropdown
-                        ask="Apakah saya bisa mengakses ebook di berbagai perangkat ?"
-                        answer="Tentu! Ebook ini bisa diakses di smartphone, tablet, dan laptop—belajar di mana saja, kapan saja!"
+                        ask="3. Dimana aku bisa mengakses guide book ini?"
+                        answer="Guide book ini bisa diakses di mana saja loh! Smartphone, tablet, PC, dan laptop—belajar di mana saja, kapan saja!"
                     />
                     <Dropdown
-                        ask="Apakah ada pembaruan konten di masa depan ?"
-                        answer="Kami selalu berusaha memberikan konten terbaru! Dengan pembelian ebook, kamu akan mendapatkan akses ke pembaruan gratis."
+                        ask="4. Apakah bisa interaksi dan ngobrol langsung dengan Meggie?"
+                        answer="Materi menggunakan video rekaman. Kalau kalian ada pertanyaan, feel free untuk DM Meggie di Instagram ya!"
                     />
                     <Dropdown
-                        ask="Apakah saya perlu memiliki pengetahuan dasar tentang bahasa Mandarin sebelum membaca ebook ini ?"
-                        answer="Tidak perlu! Ebook ini cocok untuk semua level, termasuk yang belum pernah belajar bahasa Mandarin sebelumnya."
+                        ask="5. Apakah saya perlu memiliki pengetahuan dasar tentang bahasa Mandarin sebelum membaca ebook ini ?"
+                        answer="Tidak perlu ya! Guide book ini cocok banget untuk semua level, termasuk yang belum pernah belajar Bahasa Mandarin sebelumnya"
                     />
+                    <Dropdown
+                        ask="6. Akses materi berlaku sampai kapan?"
+                        answer="Akses untuk video materi berlaku selamanya! Kamu bisa tonton dan pelajari ulang sesuai dengan kecepatan belajar kamu!"
+                    />
+                    
                 </div>
             </div>
         </section>
