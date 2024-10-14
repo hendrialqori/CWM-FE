@@ -31,22 +31,22 @@ function Footer() {
         <React.Fragment>
             <footer className="landing-page-container relative flex flex-col md:flex-row justify-between items-center gap-16 md:gap-0 pt-24 pb-48">
                 <GreenBlurCircleShape />
-                <div className="w-full md:w-6/12 xl:w-4/12 space-y-5" aria-label="left-side">
-                    <h2 className="font-fredoka font-bold text-lg md:text-3xl leading-[150%]">BEST DEAL Beli sekarang ​dan dapatkan GRATIS ​update konten selamanya !</h2>
+                <div className="w-full md:w-6/12 xl:w-4/12 space-y-5 flex items-center md:items-start flex-col" aria-label="left-side">
+                    <h2 className="font-fredoka font-bold text-lg md:text-xl lg:text-3xl leading-[150%] text-center md:text-left">BEST DEAL Beli sekarang ​dan dapatkan GRATIS ​update konten selamanya !</h2>
                     <button
                         className="relative w-max bg-black rounded-lg center-flex gap-2 text-white px-6 py-2 z-[2] outline-double active:outline-black">
-                        <p className="text-sm md:text-xl font-mulish font-medium">Beli sekarang</p>
+                        <p className="text-sm md:text-xl font-mulish font-medium">Dapatkan sekarang</p>
                         <FiShoppingCart className="text-base md:text-xl" />
                     </button>
                 </div>
                 <div className="space-y-5" aria-label="right-side">
-                    <div className="flex items-center justify-start md:justify-end">
+                    <div className="flex items-center justify-center md:justify-end">
                         <p className="font-fredoka font-semibold text-xl">Chinesewithmeggie</p>
                         <Image
                             src={china_flag} width={20} height={14} alt="china_flag"
                         />
                     </div>
-                    <div className="center-flex justify-start md:justify-end gap-3">
+                    <div className="center-flex justify-center md:justify-end gap-3">
                         <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
                             <LuInstagram className="text-2xl" />
                         </a>
@@ -54,7 +54,7 @@ function Footer() {
                             <FaTiktok className="text-xl" />
                         </a>
                     </div>
-                    <p className="font-mulish text-sm font-medium">Home  |  Product  |  Testimony  |  What will you get  |  FAQ</p>
+                    <p className="font-mulish text-sm font-medium text-center md:text-left">Home  |  Product  |  Testimony  |  What will you get  |  FAQ</p>
                 </div>
             </footer>
             <Credits />

@@ -50,14 +50,16 @@ function Hero() {
                     <BlurEffectBackground />
                     <div className="relative space-y-6 z-[2]" aria-label="tagline & descriptions">
                         <div className="bg-white w-full md:w-max rounded-full px-4 py-1" aria-label="badge">
-                            <p className="text-[#F07B48] text-xs text-center md:text-left md:text-base lg:text-xl">#1 Practical guide book survive, tinggal dan liburan di China</p>
+                            <p className="text-[#F07B48] text-xs text-center md:text-left md:text-base lg:text-xl">
+                                #1 Guide Book Mandarin super praktis dan mudah dipraktekin!
+                            </p>
                         </div>
                         <div className="space-y-1">
                             <h1 className="font-fredoka font-bold text-center md:text-left text-2xl md:text-4xl lg:text-5xl !leading-[120%]">
                                 Siap PD ngobrol
                                 <span id="hero-custom-text" className="relative text-[#F1936B] px-1 md:px-3">
                                     Mandarin?</span>
-                                Guide Book <span className="text-[#F1936B]">Mandarin</span> untuk hidup sehari-hari
+                                Guide Book Mandarin untuk hidup di China
                             </h1>
                         </div>
                         <p className="font-mulish font-light md:font-medium text-xs md:text-base max-w-lg text-center md:text-left">
@@ -76,16 +78,16 @@ function Hero() {
                     </div>
                     <div className="relative center-flex justify-center md:justify-start gap-3 md:gap-x-6 z-[4]" aria-label="reports">
                         <div className="font-mulish space-y-1">
-                            <p className="text-xl md:text-4xl font-extrabold text-cwm_green">5+</p>
+                            <p className="text-xl md:text-4xl font-extrabold text-cwm_green">20++</p>
                             <p className="text-xs md:text-sm font-medium">Video panduan</p>
                         </div>
                         <div className="font-mulish space-y-1">
-                            <p className="text-xl md:text-4xl font-extrabold text-cwm_green">8+</p>
-                            <p className="text-xs md:text-sm font-medium">PDF panduan</p>
+                            <p className="text-xl md:text-4xl font-extrabold text-cwm_green">20++</p>
+                            <p className="text-xs md:text-sm font-medium">Materi guide book</p>
                         </div>
                         <div className="font-mulish space-y-1">
-                            <p className="text-xl md:text-4xl font-extrabold text-cwm_green">3+</p>
-                            <p className="text-xs md:text-sm font-medium">PDF panduan</p>
+                            <p className="text-xl md:text-4xl font-extrabold text-cwm_green">200+</p>
+                            <p className="text-xs md:text-sm font-medium">Pembeli</p>
                         </div>
                     </div>
                 </div>

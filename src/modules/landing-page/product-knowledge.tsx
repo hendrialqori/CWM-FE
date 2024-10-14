@@ -32,7 +32,7 @@ function DollarShape() {
     return (
         <Image
             src={dollar_shape}
-            className="size-10 md:size-20 lg:size-28 absolute -bottom-10 md:bottom-0 right-20 md:right-40"
+            className="size-10 md:size-20 lg:size-28 absolute -bottom-10 right-20 md:right-40"
             width={112}
             height={112}
             alt="dollar-shape"
@@ -45,29 +45,30 @@ function ProductKnowledge() {
         <section className="landing-page-container relative flex flex-col lg:flex-row gap-8 py-12 md:py-24 t-space_between_section_sm md:mt-space_between_section_md xl:mt-space_between_section">
             <StarShape />
             <div className="w-full lg:w-5/12 space-y-10 md:space-y-12" aria-label="product knowledge description">
-                <div className="text-center space-y-0 md:space-y-2">
-                    <h2 className="font-fredoka font-bold text-xl md:text-[2rem] leading-[2.25rem]">What will you get ?</h2>
-                    <p className="font-mulish text-sm md:text-xl font-medium text-[#5D5D5D]">Skill yang bisa buat kamu menjadi makin percaya diri</p>
+                <h2 className="font-fredoka text-center font-bold text-xl md:text-[2rem] leading-[2.25rem] text-[#6E9FB8]">Apa yang kamu dapatkan ?</h2>
+                <div className="space-y-7">
+                    {productKnowledgePoints.map((point, i) => (
+                        <Point
+                            key={i}
+                            description={point}
+                        />
+                    ))}
                 </div>
-                {productKnowledgePoints.map((point, i) => (
-                    <Point
-                        key={i}
-                        description={point}
-                    />
-                ))}
             </div>
-            <div className="w-full lg:w-7/12 center-flex flex-col" aria-label="image">
-                <Image
-                    src="/image/cover-ebook.png"
-                    width={674}
-                    height={440}
-                    alt="cover-ebook"
+            <div className="w-full lg:w-7/12" aria-label="image">
+                <div className="center-flex flex-col sticky top-1/4">
+                    <Image
+                        src="/image/cover-ebook.png"
+                        width={674}
+                        height={440}
+                        alt="cover-ebook"
 
-                />
-                <div className="flex gap-3">
-                    <div className="h-1 w-7 md:w-14 bg-cwm_orange" />
-                    <div className="h-1 w-7 md:w-14 bg-cwm_blue" />
-                    <div className="h-1 w-7 md:w-14 bg-cwm_green" />
+                    />
+                    <div className="flex gap-3">
+                        <div className="h-1 w-7 md:w-14 bg-cwm_orange" />
+                        <div className="h-1 w-7 md:w-14 bg-cwm_blue" />
+                        <div className="h-1 w-7 md:w-14 bg-cwm_green" />
+                    </div>
                 </div>
             </div>
             <DollarShape />

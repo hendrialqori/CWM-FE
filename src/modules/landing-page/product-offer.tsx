@@ -11,7 +11,7 @@ import { ProductOfferCheckout } from "./product-offer-checkout";
 
 function BlurEffectBackground() {
     return (
-        <div className="flex w-max absolute z-1 -translate-x-1/2 left-1/2 top-16">
+        <div className="flex w-max absolute z-1 -translate-x-1/2 left-1/2 bottom-0">
             <div className="size-72 rounded-full bg-cwm_blue opacity-25 blur-2xl translate-x-8" />
             <div className="size-72 rounded-full bg-cwm_green opacity-25 blur-2xl -translate-x-20 -translate-y-14" />
         </div>
@@ -71,10 +71,9 @@ function ProductOffer() {
         <section className="bg-[#FEF9F6] relative overflow-hidden py-20 md:py-24 mt-space_between_section_sm md:mt-space_between_section_md xl:mt-space_between_section" aria-label="product-offer">
             <div className="relative landing-page-container space-y-10 md:space-y-20">
                 <RocketShape />
-                <div className="center-flex flex-col space-y-0 md:space-y-2" aria-label="title">
-                    <h2 className="font-fredoka font-bold text-xl md:text-[2rem] text-center md:text-left">Alasan Guidebook Ini One of a Kind</h2>
-                    <p className="font-mulish text-sm md:text-xl font-medium text-[#5D5D5D]">Banyak benefit yang bakal kamu dapatkan</p>
-                </div>
+                <h2 className="font-fredoka font-bold text-xl md:text-[2rem] text-center">
+                    Cuma di guidebook ini kamu bisa dapatkan:
+                </h2>
                 <div className="grid grid-cols-1 lg:grid-cols-3 place-items-start gap-8" aria-label="offers">
                     <div className="center-flex flex-col space-y-6" aria-label="offer">
                         <div className="center-flex flex-col">
@@ -82,7 +81,7 @@ function ProductOffer() {
                             <h3 className="font-fredoka text-lg md:text-2xl font-bold text-[#F07B48]">Guiding Video</h3>
                         </div>
                         <p className="text-center text-sm md:text-base font-medium text-[#3A3A3A] font-mulish">
-                            Tidak cuman gambar dan tulisan, di setiap bab Meggie sertakan video yg akan membantu kamu untuk lebih memahami cara baca, ejaan, dan nada bahasa mandarin
+                            Nggak cuman gambar dan tulisan, di setiap bab Meggie sertakan video yang akan ngebantu kalian untuk lebih memahami cara baca, ejaan, dan nada Bahasa Mandarin.
                         </p>
                     </div>
                     <div className="center-flex flex-col space-y-6" aria-label="offer">
@@ -91,7 +90,7 @@ function ProductOffer() {
                             <h3 className="font-fredoka text-lg md:text-2xl font-bold text-cwm_blue">Listening Pratice</h3>
                         </div>
                         <p className="text-center text-sm md:text-base font-medium text-[#3A3A3A] font-mulish">
-                            Tidak cuman membaca dan menonton, Meggie juga akan kasih km latihan mendengarkan. Dalam belajar bahasa penting banget untuk latihan mendengarkan supaya km makin terbiasa
+                            Nggak cuman membaca dan menonton, Meggie juga akan kasih kamu latihan untuk mendengarkan. Kalo belajar bahasa penting banget untuk latihan mendengarkan supaya kamu makin terbiasa.
                         </p>
                     </div>
                     <div className="center-flex flex-col space-y-6" aria-label="offer">
@@ -100,7 +99,7 @@ function ProductOffer() {
                             <h3 className="font-fredoka text-lg md:text-2xl font-bold text-cwm_green">Interactive Quiz</h3>
                         </div>
                         <p className="text-center text-sm md:text-base font-medium text-[#3A3A3A] font-mulish">
-                            Meggie juga akan kasih km bonus quiz latihan nih, supaya kamu bisa tes pemahaman kamu
+                            Meggie juga akan kasih bonus quiz loh supaya kamu bisa latihan secara mandiri tentang pemahaman kamu!
                         </p>
                     </div>
                 </div>

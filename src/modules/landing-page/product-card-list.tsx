@@ -5,37 +5,6 @@ import Flow from "#/components/control-flow";
 import { useProductListPublic } from "#/services/product-service";
 import { ProductCard, ProductCardSkeleton } from "./product-card";
 
-const DUMMY = [
-    {
-        id: 1,
-        image: "/image/cover-ebook.png",
-        title: "Chinesewithmeggie limited edition",
-        originalPrice: 150000,
-        strikeoutPrice: 200000,
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-        createdAt: new Date(),
-        updatedAt: new Date()
-    },
-    {
-        id: 2,
-        image: "/image/cover-ebook.png",
-        title: "Chinesewithmeggie limited edition",
-        originalPrice: 150000,
-        strikeoutPrice: 200000,
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-        createdAt: new Date(),
-        updatedAt: new Date()
-    }, {
-        id: 3,
-        image: "/image/cover-ebook.png",
-        title: "Chinesewithmeggie limited edition",
-        originalPrice: 150000,
-        strikeoutPrice: 200000,
-        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book",
-        createdAt: new Date(),
-        updatedAt: new Date()
-    }
-] as Product[]
 
 function ProductCardList() {
 
@@ -55,7 +24,7 @@ function ProductCardList() {
                     </div>
                 </Flow.If>
                 <Flow.ElseIf condition={isSuccess}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xl:gap-10">
+                    <div className="flex justify-center items-start flex-wrap gap-5 xl:gap-7">
                         {products?.data?.map((product) => (
                             <ProductCard key={product.id} {...product} />
                         ))}

@@ -21,7 +21,7 @@ function UniqueSellingPoint() {
             </div>
             <div className="landing-page-container2nd grid grid-cols-1 xl:grid-cols-8 grid-rows-2 gap-3 md:gap-5">
                 <h2 className="font-bold text-center md:text-left text-2xl md:text-3xl font-fredoka col-span-5 md:col-span-3 center-flex translate-y-7">
-                    Mengapa harus beli di chinesewithmeggie ?
+                    Kenapa harus Chinese With Meggie ?
                 </h2>
                 <div className="relative flex col-span-5 rounded-3xl bg-[#F07B48]/15" aria-label="usp-description">
                     <div className="w-8/12 md:w-7/12 pl-7 py-12 space-y-3 flex flex-col justify-center items-start">
@@ -50,7 +50,7 @@ function UniqueSellingPoint() {
                     <div className="w-9/12 pl-2 md:pl-0 pr-4 md:pr-8 py-12 space-y-3 flex flex-col justify-center items-start">
                         <h3 className="font-fredoka font-bold text-sm md:text-xl">Mudah Dibaca, Praktis banget</h3>
                         <p className="font-mulish text-xs md:text-base">
-                            Meggie bikin simple dengan guidebook yg colorful, video interactive, dan gambar yg lucu dijamin km gak bosen
+                            Meggie bikin simple dengan guidebook yang colorful, video interactive, dan gambar yang lucu. dijamin kamu gak bosen deh!
                         </p>
                     </div>
                     <Image

@@ -26,11 +26,10 @@ function ProductCard(props: Product) {
 
     return (
         <React.Fragment>
-            <figure className="bg-white rounded-2xl overflow-hidden shadow-md z-[3]">
+            <figure className="bg-white rounded-2xl overflow-hidden shadow-md z-[3] border border-gray-200 w-full md:w-[48%] xl:w-[31%]">
                 <div className="bg-[#F5F5F5] flex justify-center items-center" aria-label="image-wrapper">
                     <Image
                         src={STATIC + "/" + props.image}
-                        // src={props.image}
                         width={303}
                         height={300}
                         alt="product-pannel"
@@ -38,10 +37,10 @@ function ProductCard(props: Product) {
 
                     />
                 </div>
-                <figcaption className="space-y-5 px-5 py-6">
+                <figcaption className="space-y-0 md:space-y-5 px-5 py-6">
                     <div className="space-y-2" aria-label="title & discription">
-                        <h3 className="font-fredoka font-bold text-base md:text-xl">{props.title}</h3>
-                        <div className="min-h-20 text-[#5D5D5D] font-medium text-sm md:text-base">
+                        <h3 className="font-fredoka font-bold text-sm md:text-base lg:text-xl">{props.title}</h3>
+                        <div className="min-h-20 text-[#5D5D5D] font-medium text-xs md:text-sm lg:text-base">
                             <p>{truncateDescription(props?.description ?? "")} {" "}</p>
                             <span
                                 role="button"
@@ -53,19 +52,19 @@ function ProductCard(props: Product) {
                             </span>
                         </div>
                     </div>
-                    <div className="flex justify-between">
+                    <div className="flex flex-col md:flex-row gap-2 md:gap-0 justify-between">
                         <div className="font-mulish">
-                            <p className="line-through text-sm font-medium">Rp {priceFormat(props.strikeoutPrice)}</p>
-                            <p className="font-bold text-base md:text-lg">Rp {priceFormat(props.originalPrice)}</p>
+                            <p className="line-through text-xs md:text-sm font-medium">Rp {priceFormat(props.strikeoutPrice)}</p>
+                            <p className="font-bold text-base lg:text-lg">Rp {priceFormat(props.originalPrice)}</p>
                         </div>
                         <button
                             className={cn(
-                                "flex items-center justify-between gap-x-3 px-3 md:px-5 py-2 md:py-[10px] text-white rounded-lg",
+                                "flex items-center justify-between gap-x-3 px-3 md:px-4 py-3 md:py-[10px] text-white rounded-lg",
                                 "bg-gradient-to-r from-[#6E9FB8] to-[#ADC482] outline-double hover:outline-[#6E9FB8]"
                             )}
                             onClick={checkoutAction("open")}
                         >
-                            <span className="text-sm font-semibold font-mulish">Beli sekarang</span>
+                            <span className="text-xs md:text-sm font-semibold font-mulish">Dapatkan Sekarang</span>
                             <FiShoppingCart className="text-xl" />
                         </button>
                     </div>
@@ -74,7 +73,6 @@ function ProductCard(props: Product) {
             <Portal isOpen={isCheckout}>
                 <Checkout
                     {...props}
-                    // image={STATIC + "/" + props.image}
                     onClose={checkoutAction("close")}
                 />
             </Portal>
