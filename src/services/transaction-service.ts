@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query"
 import axios, { type AxiosError } from "axios"
-import type { Success, Error, Transaction, Credential } from "#/@type"
+import type { Success, Error, Transaction } from "#/@type"
 import { API } from "#/constants"
 import { useInstance } from "#/lib/axios-instance"
 import { useCredential } from "#/lib/credential"

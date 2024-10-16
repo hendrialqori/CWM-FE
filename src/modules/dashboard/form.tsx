@@ -35,7 +35,7 @@ function ProductForm({ id, type, onClose, }: Props) {
     const [isChangeImage, setChangeImage] = React.useState(false)
 
     const { register, handleSubmit,
-        formState: { errors }, getValues, setValue, reset } = useForm<AddProductType>({
+        formState: { errors }, setValue, reset } = useForm<AddProductType>({
             resolver: zodResolver(
                 isChangeImage || type === "CREATE"
                     ? addProductScheme : updateProductScheme

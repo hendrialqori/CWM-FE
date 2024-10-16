@@ -1,5 +1,3 @@
-import { type Testimony } from "#/@type";
-
 export const CLIENT = process.env.NEXT_PUBLIC_CLIENT
 
 export const API = CLIENT + "/api"

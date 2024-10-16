@@ -106,12 +106,12 @@ function ProductCard(props: Product) {
             <Portal isOpen={modal.update}>
                 <ProductForm
                     type="UPDATE"
-                    id={props.id}
+                    id={Number(props.id)}
                     onClose={resetModalAction}
                 />
             </Portal>
             <Portal isOpen={modal.delete} >
-                <ProductDelete id={props.id}
+                <ProductDelete id={Number(props.id)}
                     onClose={resetModalAction} />
             </Portal>
         </>

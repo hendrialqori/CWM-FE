@@ -1,13 +1,10 @@
 "use client";
 
-import { Product } from "#/@type";
 import Flow from "#/components/control-flow";
 import { useProductListPublic } from "#/services/product-service";
 import { ProductCard, ProductCardSkeleton } from "./product-card";
 
-
 function ProductCardList() {
-
     const { data: products, isPending, isSuccess } = useProductListPublic()
 
     return (
