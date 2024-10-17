@@ -19,20 +19,20 @@ function BlueCircleShape() {
 
 function FAQ() {
     return (
-        <section className="py-20 md:py-24 relative overflow-hidden">
+        <section className="py-10 md:py-24 relative overflow-hidden">
             <BlueCircleShape />
             <div className="landing-page-container2nd grid grid-cols-1 lg:grid-cols-2 gap-14">
-                <div className="flex flex-col items-center space-y-2">
-                    <div className="text-center space-y-2">
-                        <h2 className="font-fredoka font-bold text-xl md:text-[2rem]">Frequently Asked Questions</h2>
-                        <h3 className="font-fredoka font-bold text-sm md:text-xl text-[#5D5D5D]">Meggie jawab pertanyaan kalian</h3>
+                <div className="flex flex-col-reverse md:flex-col items-center gap-2">
+                    <div className="text-center space-y-1 md:space-y-2">
+                        <h2 className="font-fredoka font-bold text-xs md:text-2xl xl:text-[2rem]">Frequently Asked Questions</h2>
+                        <h3 className="font-fredoka font-bold text-[0.65rem] md:text-lg xl:text-xl text-[#5D5D5D]">Meggie jawab pertanyaan kalian</h3>
                     </div>
                     <Image
                         src="/image/faq.png"
                         alt="faq"
                         height={497}
                         width={392}
-                        className="w-6/12"
+                        className="w-4/12 md:w-5/12 xl:w-6/12"
                     />
                 </div>
                 <div className="" aria-label="description">

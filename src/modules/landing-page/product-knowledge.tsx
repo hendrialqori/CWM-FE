@@ -9,9 +9,9 @@ function Point({ description }: { description: string }) {
     return (
         <div className="flex justify-start items-start gap-4">
             <div className="bg-cwm_green rounded-[0.25rem] p-[2px]">
-                <LuCheck className="text-white text-base md:text-lg" />
+                <LuCheck className="text-white text-xs md:text-lg" />
             </div>
-            <p className="text-xs md:text-lg md:-translate-y-1 font-medium">{description}</p>
+            <p className="text-[0.6rem] md:text-base xl:text-lg md:-translate-y-1 font-medium">{description}</p>
         </div>
     )
 }
@@ -20,7 +20,7 @@ function StarShape() {
     return (
         <Image
             src={star_shape}
-            className="size-10 md:size-20 lg:size-28 absolute -top-2 md:-top-20 right-10 md:right-1/4"
+            className="size-8 md:size-14 xl:size-28 absolute top-5 md:-top-20 right-10 md:right-1/4"
             width={112}
             height={112}
             alt="star-shape"
@@ -32,7 +32,7 @@ function DollarShape() {
     return (
         <Image
             src={dollar_shape}
-            className="size-10 md:size-20 lg:size-28 absolute -bottom-10 right-20 md:right-40"
+            className="size-8 md:size-16 xl:size-28 absolute -bottom-3 md:-bottom-10 right-20 md:right-40"
             width={112}
             height={112}
             alt="dollar-shape"
@@ -40,13 +40,13 @@ function DollarShape() {
     )
 }
 
-function ProductKnowledge() {
+export function ProductKnowledge() {
     return (
         <section className="landing-page-container relative flex flex-col lg:flex-row gap-8 py-12 md:py-24 t-space_between_section_sm md:mt-space_between_section_md xl:mt-space_between_section">
             <StarShape />
-            <div className="w-full lg:w-5/12 space-y-10 md:space-y-12" aria-label="product knowledge description">
-                <h2 className="font-fredoka text-center font-bold text-xl md:text-[2rem] leading-[2.25rem] text-[#6E9FB8]">Apa yang kamu dapatkan ?</h2>
-                <div className="space-y-7">
+            <div className="w-full lg:w-5/12 space-y-8 md:space-y-12" aria-label="product knowledge description">
+                <h2 className="font-fredoka text-center font-bold text-xs md:text-2xl xl:text-[2rem] text-[#6E9FB8]">Apa yang kamu dapatkan ?</h2>
+                <div className="space-y-3 md:space-y-7">
                     {productKnowledgePoints.map((point, i) => (
                         <Point
                             key={i}
@@ -75,6 +75,3 @@ function ProductKnowledge() {
         </section>
     )
 }
-
-
-export { ProductKnowledge }

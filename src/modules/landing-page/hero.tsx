@@ -6,9 +6,9 @@ import { HeroVideoButton } from "./hero-video-button";
 
 function Header() {
     return (
-        <div className="landing-page-container py-6 md:py-10" aria-label="navbar">
+        <div className="landing-page-container pt-8 pb-12 md:py-10 center-flex md:justify-start" aria-label="navbar">
             <section className="flex items-center">
-                <p className="font-fredoka font-semibold text-base md:text-xl">Chinesewithmeggie</p>
+                <p className="font-fredoka font-semibold text-xs md:text-base xl:text-xl">Chinesewithmeggie</p>
                 <Image
                     src={china_flag} width={20} height={14} alt="china_flag"
                 />
@@ -30,7 +30,7 @@ function BlurEffectBackground() {
 
 function Column(props: { children: React.ReactNode, className?: string }) {
     const className = Utils.merge(
-        "space-y-3",
+        "space-y-2 md:space-y-3",
         props.className
     )
 
@@ -43,68 +43,68 @@ function Column(props: { children: React.ReactNode, className?: string }) {
 
 function Hero() {
     return (
-        <section className="bg-[#FEF9F6] pb-20 md:pb-28">
+        <section className="bg-[#FEF9F6] pb-20 md:pb-28 relative overflow-hidden">
             <Header />
+            <BlurEffectBackground />
             <div className="landing-page-container grid grid-cols-1 xl:grid-cols-2 gap-16 md:gap-28 xl:gap-14">
-                <div className="relative space-y-10 mt-0 xl:mt-20 z-[2] mx-auto xl:mx-[0] overflow-hidden" aria-label="left-side">
-                    <BlurEffectBackground />
+                <div className="space-y-10 mt-0 xl:mt-20 z-[2] mx-auto xl:mx-[0]" aria-label="left-side">
                     <div className="relative space-y-6 z-[2]" aria-label="tagline & descriptions">
-                        <div className="bg-white w-full md:w-max rounded-full px-4 py-1" aria-label="badge">
-                            <p className="text-[#F07B48] text-xs text-center md:text-left md:text-base lg:text-xl">
+                        <div className="bg-white w-full md:w-max rounded-full px-4 py-1 shadow-sm" aria-label="badge">
+                            <p className="text-[#F07B48] text-[0.6rem] text-center md:text-left md:text-base lg:text-xl">
                                 #1 Guide Book Mandarin super praktis dan mudah dipraktekin!
                             </p>
                         </div>
                         <div className="space-y-1">
-                            <h1 className="font-fredoka font-bold text-center md:text-left text-2xl md:text-4xl lg:text-5xl !leading-[120%]">
+                            <h1 className="font-fredoka font-bold text-center md:text-left text-3xl md:text-4xl lg:text-5xl !leading-[120%]">
                                 Siap PD ngobrol
                                 <span id="hero-custom-text" className="relative text-[#F1936B] px-1 md:px-3">
                                     Mandarin?</span>
                                 Guide Book Mandarin untuk hidup di China
                             </h1>
                         </div>
-                        <p className="font-mulish font-light md:font-medium text-xs md:text-base max-w-lg text-center md:text-left">
+                        <p className="font-mulish font-medium text-xs md:text-base max-w-lg text-center md:text-left">
                             Akses materi belajar yang komprehensif untuk menguasai bahasa Mandarin dan memahami budaya China.
                         </p>
                     </div>
                     <div className="relative center-flex flex-col md:flex-row justify-center md:justify-start gap-2 md:gap-5 z-[3]" aria-label="call to action buttons">
                         <button className="bg-white rounded-full shadow-sm center-flex gap-3 py-2 px-3 md:px-5
                          hover:bg-gray-100 transition duration-200">
-                            <p className="text-xs md:text-sm font-mulish font-semibold">Beli e-book ​sekarang</p>
-                            <div className="center-flex rounded-full bg-cwm_blue size-6 md:size-8">
-                                <MdOutlineArrowForward className="text-white text-xl" />
+                            <p className="text-[0.6rem] md:text-sm font-mulish font-semibold">Beli e-book ​sekarang</p>
+                            <div className="center-flex rounded-full bg-cwm_blue p-1 md:size-8">
+                                <MdOutlineArrowForward className="text-white text-base md:text-xl" />
                             </div>
                         </button>
                         <HeroVideoButton />
                     </div>
                     <div className="relative center-flex justify-center md:justify-start gap-3 md:gap-x-6 z-[4]" aria-label="reports">
                         <div className="font-mulish space-y-1">
-                            <p className="text-xl md:text-4xl font-extrabold text-cwm_green">20++</p>
-                            <p className="text-xs md:text-sm font-medium">Video panduan</p>
+                            <p className="text-md md:text-4xl font-extrabold text-cwm_green">20++</p>
+                            <p className="text-[0.6rem] md:text-sm font-medium">Video panduan</p>
                         </div>
                         <div className="font-mulish space-y-1">
-                            <p className="text-xl md:text-4xl font-extrabold text-cwm_green">20++</p>
-                            <p className="text-xs md:text-sm font-medium">Materi guide book</p>
+                            <p className="text-md md:text-4xl font-extrabold text-cwm_green">20++</p>
+                            <p className="text-[0.6rem] md:text-sm font-medium">Materi guide book</p>
                         </div>
                         <div className="font-mulish space-y-1">
-                            <p className="text-xl md:text-4xl font-extrabold text-cwm_green">200+</p>
-                            <p className="text-xs md:text-sm font-medium">Pembeli</p>
+                            <p className="text-md md:text-4xl font-extrabold text-cwm_green">200+</p>
+                            <p className="text-[0.6rem] md:text-sm font-medium">Pembeli</p>
                         </div>
                     </div>
                 </div>
-                <div className="grid grid-cols-2 gap-3 z-[3]" aria-label="right-side">
-                    <Column className="mt-10">
+                <div className="grid grid-cols-2 gap-2 md:gap-3 z-[3]" aria-label="right-side">
+                    <Column className="md:mt-10">
                         <Image
                             src="/image/cover-1.jpg"
                             width={285} height={324}
                             alt="cover-1"
-                            className="rounded-tl-[50px] w-full xl:w-[285px] h-[200[px] md:h-[400px] xl:h-[324px] rounded-r-xl object-cover"
+                            className="rounded-tl-[50px] w-full xl:w-[285px] h-[120px] md:h-[400px] xl:h-[324px] rounded-r-xl object-cover"
                         />
                         <Image
                             src="/image/cover-3.jpg"
                             width={285}
                             height={324}
                             alt="cover-3"
-                            className="rounded-bl-[50px] w-full xl:w-[285px] h-[200[px] md:h-[400px] xl:h-[324px] rounded-r-xl object-cover"
+                            className="rounded-bl-[50px] w-full xl:w-[285px] h-[120px] md:h-[400px] xl:h-[324px] rounded-r-xl object-cover"
                         />
                     </Column>
                     <Column>
@@ -112,14 +112,14 @@ function Hero() {
                             src="/image/cover-2.jpg"
                             width={285} height={324}
                             alt="cover-1"
-                            className="rounded-tr-[50px] w-full xl:w-[285px] h-[200[px] md:h-[400px] xl:h-[324px] rounded-l-xl object-cover"
+                            className="rounded-tr-[50px] w-full xl:w-[285px] h-[120px] md:h-[400px] xl:h-[324px] rounded-l-xl object-cover"
                         />
                         <Image
                             src="/image/cover-4.jpg"
                             width={285}
                             height={324}
                             alt="cover-3"
-                            className="rounded-br-[50px] w-full xl:w-[285px] h-[200[px] md:h-[400px] xl:h-[324px] rounded-l-xl object-cover"
+                            className="rounded-br-[50px] w-full xl:w-[285px] h-[120px] md:h-[400px] xl:h-[324px] rounded-l-xl object-cover"
                         />
                     </Column>
                 </div>

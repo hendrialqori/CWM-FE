@@ -8,8 +8,8 @@ import green_blur_circle_shape from "#/assets/svg/green-blur-circle-shape.svg?ur
 
 function Credits() {
     return (
-        <div className="landing-page-container center-flex py-12 border-t border-[#D0D0D0]">
-            <p className="text-sm font-mulish text-center">All Right Reserved@2024 - chinesewithmeggie</p>
+        <div className="landing-page-container center-flex py-8 md:py-12 border-t border-[#D0D0D0]">
+            <p className="text-[0.6rem] md:text-sm font-mulish text-center">All Right Reserved@2024 - chinesewithmeggie</p>
         </div>
     )
 }
@@ -18,7 +18,7 @@ function GreenBlurCircleShape() {
     return (
         <Image
             src={green_blur_circle_shape}
-            className="size-28 absolute bottom-10 right-[30%]"
+            className="size-28 absolute bottom-5 md:bottom-10 right-[30%]"
             width={288}
             height={288}
             alt="green_blur_circle_shape"
@@ -29,19 +29,19 @@ function GreenBlurCircleShape() {
 function Footer() {
     return (
         <React.Fragment>
-            <footer className="landing-page-container relative flex flex-col md:flex-row justify-between items-center gap-16 md:gap-0 pt-24 pb-48">
+            <footer className="landing-page-container relative flex flex-col md:flex-row justify-between items-center gap-16 md:gap-0 pt-10 pb-10 md:pb-48">
                 <GreenBlurCircleShape />
                 <div className="w-full md:w-6/12 xl:w-4/12 space-y-5 flex items-center md:items-start flex-col" aria-label="left-side">
-                    <h2 className="font-fredoka font-bold text-lg md:text-xl lg:text-3xl leading-[150%] text-center md:text-left">BEST DEAL Beli sekarang ​dan dapatkan GRATIS ​update konten selamanya !</h2>
+                    <h2 className="font-fredoka font-bold text-xs md:text-xl lg:text-3xl leading-[150%] text-center md:text-left">BEST DEAL Beli sekarang ​dan dapatkan GRATIS ​update konten selamanya !</h2>
                     <button
-                        className="relative w-max bg-black rounded-lg center-flex gap-2 text-white px-6 py-2 z-[2] outline-double active:outline-black">
-                        <p className="text-sm md:text-xl font-mulish font-medium">Dapatkan sekarang</p>
-                        <FiShoppingCart className="text-base md:text-xl" />
+                        className="relative w-max bg-black rounded-lg center-flex gap-2 text-white px-4 md:px-6 py-3 z-[2] outline-double active:outline-black">
+                        <p className="text-[0.6rem] md:text-base xl:text-xl font-mulish font-medium">Dapatkan sekarang</p>
+                        <FiShoppingCart className="text-xs md:text-xl" />
                     </button>
                 </div>
                 <div className="space-y-5" aria-label="right-side">
                     <div className="flex items-center justify-center md:justify-end">
-                        <p className="font-fredoka font-semibold text-xl">Chinesewithmeggie</p>
+                        <p className="font-fredoka font-semibold text-xs md:text-xl">Chinesewithmeggie</p>
                         <Image
                             src={china_flag} width={20} height={14} alt="china_flag"
                         />
@@ -54,7 +54,7 @@ function Footer() {
                             <FaTiktok className="text-xl" />
                         </a>
                     </div>
-                    <p className="font-mulish text-sm font-medium text-center md:text-left">Home  |  Product  |  Testimony  |  What will you get  |  FAQ</p>
+                    <p className="font-mulish text-[0.65rem] md:text-xs font-medium text-center md:text-left">Home  |  Product  |  Testimony  |  What will you get  |  FAQ</p>
                 </div>
             </footer>
             <Credits />

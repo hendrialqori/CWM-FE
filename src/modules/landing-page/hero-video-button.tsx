@@ -19,9 +19,9 @@ function HeroVideoButton() {
                 hover:bg-gray-100 transition duration-200"
                 onClick={toggle("open")}
             >
-                <p className="text-xs md:text-sm font-mulish font-semibold">Tonton teaser video</p>
-                <div className="center-flex rounded-full bg-cwm_orange size-6 md:size-8">
-                    <PiPlayLight className="text-white text-lg" />
+                <p className="text-[0.6rem] md:text-sm font-mulish font-semibold">Tonton teaser video</p>
+                <div className="center-flex rounded-full bg-cwm_orange p-1 md:size-8">
+                    <PiPlayLight className="text-white text-base md:text-lg" />
                 </div>
             </button>
             <Portal isOpen={isOpen} onClose={toggle("close")}>

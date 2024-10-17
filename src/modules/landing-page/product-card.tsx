@@ -7,7 +7,7 @@ import { STATIC } from "#/constants";
 import Portal from "#/components/ui/portal";
 import { Checkout } from "./checkout";
 
-function ProductCard(props: Product) {
+export function ProductCard(props: Product) {
 
     const [isCheckout, setChekcout] = React.useState(false)
     const [expand, setExpand] = React.useState(false)
@@ -33,14 +33,14 @@ function ProductCard(props: Product) {
                         width={303}
                         height={300}
                         alt="product-pannel"
-                        className="h-52 w-full object-cover"
+                        className="h-28 md:h-52 w-full object-cover"
 
                     />
                 </div>
-                <figcaption className="space-y-0 md:space-y-5 px-5 py-6">
-                    <div className="space-y-2" aria-label="title & discription">
-                        <h3 className="font-fredoka font-bold text-sm md:text-base lg:text-xl">{props.title}</h3>
-                        <div className="min-h-20 text-[#5D5D5D] font-medium text-xs md:text-sm lg:text-base">
+                <figcaption className="space-y-0 md:space-y-5 p-4 md:px-5 md:py-6">
+                    <div className="space-y-1 md:space-y-2" aria-label="title & discription">
+                        <h3 className="font-fredoka font-bold text-[0.65rem] md:text-base lg:text-xl">{props.title}</h3>
+                        <div className="min-h-14 md:min-h-20 text-[#5D5D5D] font-medium text-[0.6rem] md:text-sm lg:text-base">
                             <p>{truncateDescription(props?.description ?? "")} {" "}</p>
                             <span
                                 role="button"
@@ -52,20 +52,20 @@ function ProductCard(props: Product) {
                             </span>
                         </div>
                     </div>
-                    <div className="flex flex-col md:flex-row gap-2 md:gap-0 justify-between">
+                    <div className="flex gap-2 md:gap-0 justify-between">
                         <div className="font-mulish">
-                            <p className="line-through text-xs md:text-sm font-medium">Rp {priceFormat(props.strikeoutPrice)}</p>
-                            <p className="font-bold text-base lg:text-lg">Rp {priceFormat(props.originalPrice)}</p>
+                            <p className="line-through text-[0.6rem] md:text-sm font-medium">Rp {priceFormat(props.strikeoutPrice)}</p>
+                            <p className="font-bold text-[0.65rem] md:text-base xl:text-lg">Rp {priceFormat(props.originalPrice)}</p>
                         </div>
                         <button
                             className={cn(
-                                "flex items-center justify-between gap-x-3 px-3 md:px-4 py-3 md:py-[10px] text-white rounded-lg",
+                                "flex items-center justify-between gap-x-2 md:gap-x-3 px-2 md:px-4 py-2 md:py-[10px] text-white rounded-lg",
                                 "bg-gradient-to-r from-[#6E9FB8] to-[#ADC482] outline-double hover:outline-[#6E9FB8]"
                             )}
                             onClick={checkoutAction("open")}
                         >
-                            <span className="text-xs md:text-sm font-semibold font-mulish">Dapatkan Sekarang</span>
-                            <FiShoppingCart className="text-xl" />
+                            <span className="text-[0.6rem] md:text-xs xl:text-sm font-normal md:font-semibold font-mulish">Dapatkan Sekarang</span>
+                            <FiShoppingCart className="text-xs md:text-xl" />
                         </button>
                     </div>
                 </figcaption>
@@ -81,8 +81,6 @@ function ProductCard(props: Product) {
 }
 
 
-function ProductCardSkeleton() {
+export function ProductCardSkeleton() {
     return <div className="bg-gray-300 rounded-2xl overflow-hidden shadow-md z-[3] h-52 animate-pulse" />
 }
-
-export { ProductCard, ProductCardSkeleton }

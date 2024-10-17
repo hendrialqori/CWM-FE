@@ -7,7 +7,7 @@ import { testimonial } from "#/constants";
 
 function Testimony({ image }: { image: string }) {
     return (
-        <div className="relative z-10 rounded-[1.25rem] overflow-hidden w-full md:w-[30%] xl:w-[24%]">
+        <div className="relative z-10 rounded-[1.25rem] overflow-hidden w-[47%] md:w-[30%] xl:w-[24%]">
             <Image
                 src={image}
                 width={210}
@@ -47,7 +47,7 @@ function PinkCircleShape() {
     return (
         <Image
             src={pink_circle_shape}
-            className="size-10 md:size-20 lg:size-28 absolute -top-4 md:-top-20 -left-0 xl:-left-20"
+            className="size-8 md:size-14 lg:size-28 absolute -top-4 md:-top-20 left- xl:-left-20"
             width={112}
             height={112}
             alt="pink-circle-shape"
@@ -64,8 +64,8 @@ function Testimonial() {
                 {/* <GreenShape />
                 <BlueShape /> */}
             </div>
-            <div className="landing-page-container2nd space-y-10 md:space-y-20 py-7 md:py-14 relative">
-                <h2 className="font-fredoka font-bold text-xl md:text-[2rem] text-center">Apa kata Mereka?</h2>
+            <div className="landing-page-container2nd space-y-8 md:space-y-20 py-7 md:py-14 relative">
+                <h2 className="font-fredoka font-bold text-xs md:text-2xl xl:text-[2rem] text-center">Apa kata Mereka?</h2>
                 <div className="flex justify-center flex-wrap gap-3">
                     {testimonial.map((testimony, i) => (
                         <Testimony

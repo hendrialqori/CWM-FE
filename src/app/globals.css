@@ -9,17 +9,17 @@
   --cwm-yellow: #FAB772;
   --cwm-green: #ADC482;
   --space-between-section: 7.5rem;   /*120 px*/
-  --space-between-section_md: 5.7rem ; /*90 px*/
-  --space-between-section_sm: 3.75rem; /*60 px*/
+  --space-between-section_md: 3rem ; 
+  --space-between-section_sm: 2rem;
 }
 
 @layer components {
   .landing-page-container {
-    @apply w-[calc(100%_-_20px)] md:w-[calc(100%_-_50px)] max-w-[1200px] mx-auto
+    @apply px-10 xl:px-0 max-w-[1200px] mx-auto
   }
 
   .landing-page-container2nd {
-    @apply w-[calc(100%_-_20px)] md:w-[calc(100%_-_50px)] max-w-[986px] mx-auto
+    @apply px-10 xl:px-0 max-w-[986px] mx-auto
   }
 
   .center-flex {
@@ -27,6 +27,10 @@
   }
 
 }
+
+/* * {
+  outline: 1px solid red;
+} */
 
 
 #hero-custom-text::before {
