@@ -1,7 +1,5 @@
 import React from "react";
 import Image from "next/image"
-import green_shape from "#/assets/svg/green-shape.svg?url"
-import blue_shape from "#/assets/svg/blue-shape.svg?url"
 import pink_circle_shape from "#/assets/svg/pink-circle-shape.svg?url"
 import { testimonial } from "#/constants";
 
@@ -22,8 +20,8 @@ function Testimony({ image }: { image: string }) {
 function GreenShape() {
     return (
         <Image
-            src={green_shape}
-            className="size-10 md:size-20 lg:size-28 absolute -top-3 md:top-0 -left-0 xl:-left-20"
+            src="/image/green-shape.png"
+            className="size-8 md:size-20 lg:size-28 absolute -top-3 md:top-0 left-5 xl:-left-20"
             width={112}
             height={112}
             alt="green-shape"
@@ -34,8 +32,8 @@ function GreenShape() {
 function BlueShape() {
     return (
         <Image
-            src={blue_shape}
-            className="size-10 md:size-20 lg:size-28 absolute -top-10 md:-top-20 -right-0 xl:-right-20"
+            src="/image/blue-shape.png"
+            className="size-10 md:size-20 lg:size-28 absolute -top-5 md:-top-20 right-5 xl:-right-20"
             width={112}
             height={112}
             alt="blue-shape"
