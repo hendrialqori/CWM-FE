@@ -2,7 +2,7 @@ import Image from "next/image";
 import china_flag from "#/assets/svg/china-flag.svg?url"
 import { MdOutlineArrowForward } from "react-icons/md";
 import * as Utils from "#/lib/utils"
-import { HeroVideoButton } from "./hero-video-button";
+import * as Button from "./hero-button-action";
 
 function Header() {
     return (
@@ -41,7 +41,7 @@ function Column(props: { children: React.ReactNode, className?: string }) {
     )
 }
 
-function Hero() {
+export function Hero() {
     return (
         <section className="bg-[#FEF9F6] pb-20 md:pb-28 relative overflow-hidden">
             <Header />
@@ -50,7 +50,7 @@ function Hero() {
                 <div className="space-y-10 mt-0 xl:mt-20 z-[2] mx-auto xl:mx-[0]" aria-label="left-side">
                     <div className="relative space-y-6 z-[2]" aria-label="tagline & descriptions">
                         <div className="bg-white w-full md:w-max rounded-full px-4 py-1 shadow-sm" aria-label="badge">
-                            <p className="text-[#F07B48] text-[0.6rem] text-center md:text-left md:text-base lg:text-xl">
+                            <p className="text-[#F07B48] text-[0.7rem] text-center md:text-left md:text-base lg:text-xl">
                                 #1 Guide Book Mandarin super praktis dan mudah dipraktekin!
                             </p>
                         </div>
@@ -67,27 +67,21 @@ function Hero() {
                         </p>
                     </div>
                     <div className="relative center-flex flex-col md:flex-row justify-center md:justify-start gap-2 md:gap-5 z-[3]" aria-label="call to action buttons">
-                        <button className="bg-white rounded-full shadow-sm center-flex gap-3 py-2 px-3 md:px-5
-                         hover:bg-gray-100 transition duration-200">
-                            <p className="text-[0.6rem] md:text-sm font-mulish font-semibold">Beli e-book ​sekarang</p>
-                            <div className="center-flex rounded-full bg-cwm_blue p-1 md:size-8">
-                                <MdOutlineArrowForward className="text-white text-base md:text-xl" />
-                            </div>
-                        </button>
-                        <HeroVideoButton />
+                        <Button.ScrollIntoProduct />
+                        <Button.HeroVideo />
                     </div>
                     <div className="relative center-flex justify-center md:justify-start gap-3 md:gap-x-6 z-[4]" aria-label="reports">
                         <div className="font-mulish space-y-1">
                             <p className="text-md md:text-4xl font-extrabold text-cwm_green">20++</p>
-                            <p className="text-[0.6rem] md:text-sm font-medium">Video panduan</p>
+                            <p className="text-[0.7rem] md:text-sm font-medium">Video panduan</p>
                         </div>
                         <div className="font-mulish space-y-1">
                             <p className="text-md md:text-4xl font-extrabold text-cwm_green">20++</p>
-                            <p className="text-[0.6rem] md:text-sm font-medium">Materi guide book</p>
+                            <p className="text-[0.7rem] md:text-sm font-medium">Materi guide book</p>
                         </div>
                         <div className="font-mulish space-y-1">
                             <p className="text-md md:text-4xl font-extrabold text-cwm_green">200+</p>
-                            <p className="text-[0.6rem] md:text-sm font-medium">Pembeli</p>
+                            <p className="text-[0.7rem] md:text-sm font-medium">Pembeli</p>
                         </div>
                     </div>
                 </div>
@@ -127,5 +121,3 @@ function Hero() {
         </section>
     )
 }
-
-export { Hero }

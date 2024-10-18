@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image"
-// import green_shape from "#/assets/svg/green-shape.svg?url"
-// import blue_shape from "#/assets/svg/blue-shape.svg?url"
+import green_shape from "#/assets/svg/green-shape.svg?url"
+import blue_shape from "#/assets/svg/blue-shape.svg?url"
 import pink_circle_shape from "#/assets/svg/pink-circle-shape.svg?url"
 import { testimonial } from "#/constants";
 
@@ -19,29 +19,29 @@ function Testimony({ image }: { image: string }) {
     )
 }
 
-// function GreenShape() {
-//     return (
-//         <Image
-//             src={green_shape}
-//             className="size-10 md:size-20 lg:size-28 absolute -top-3 md:top-0 -left-0 xl:-left-20"
-//             width={112}
-//             height={112}
-//             alt="green-shape"
-//         />
-//     )
-// }
+function GreenShape() {
+    return (
+        <Image
+            src={green_shape}
+            className="size-10 md:size-20 lg:size-28 absolute -top-3 md:top-0 -left-0 xl:-left-20"
+            width={112}
+            height={112}
+            alt="green-shape"
+        />
+    )
+}
 
-// function BlueShape() {
-//     return (
-//         <Image
-//             src={blue_shape}
-//             className="size-10 md:size-20 lg:size-28 absolute -top-10 md:-top-20 -right-0 xl:-right-20"
-//             width={112}
-//             height={112}
-//             alt="blue-shape"
-//         />
-//     )
-// }
+function BlueShape() {
+    return (
+        <Image
+            src={blue_shape}
+            className="size-10 md:size-20 lg:size-28 absolute -top-10 md:-top-20 -right-0 xl:-right-20"
+            width={112}
+            height={112}
+            alt="blue-shape"
+        />
+    )
+}
 
 function PinkCircleShape() {
     return (
@@ -61,8 +61,8 @@ function Testimonial() {
             className="mt-space_between_section_sm md:mt-space_between_section_md xl:mt-space_between_section"
             aria-label="testimonial">
             <div className="landing-page-container2nd relative">
-                {/* <GreenShape />
-                <BlueShape /> */}
+                <GreenShape />
+                <BlueShape />
             </div>
             <div className="landing-page-container2nd space-y-8 md:space-y-20 py-7 md:py-14 relative">
                 <h2 className="font-fredoka font-bold text-xs md:text-2xl xl:text-[2rem] text-center">Apa kata Mereka?</h2>

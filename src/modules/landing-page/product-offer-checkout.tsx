@@ -1,7 +1,7 @@
 "use client";
 
-import Portal from "#/components/ui/portal";
 import React from "react";
+import Portal from "#/components/ui/portal";
 import { FiShoppingCart } from "react-icons/fi";
 import { Checkout } from "./checkout";
 import { useProductOfferPublic } from "#/services/product-service";
@@ -27,13 +27,13 @@ export function ProductOfferCheckout() {
 
     return (
         <React.Fragment>
-            <div className="space-y-6 md:space-y-12 py-space_between_section_sm">
+            <div id="product-offer-checkout" className="space-y-6 md:space-y-12 py-space_between_section_sm">
                 <div className="text-center">
                     <h4 className="font-fredoka text-xs md:text-2xl xl:text-[2rem] font-bold">Total value:</h4>
                     <p className="font-mulish line-through font-semibold text-sm md:text-3xl">Rp. {priceFormat(14999000)},-</p>
                 </div>
                 <div className="max-w-4xl mx-auto">
-                    <p className="text-[0.6rem] md:text-base xl:text-xl lg:text-2xl text-center">
+                    <p className="text-[0.7rem] md:text-base xl:text-xl lg:text-2xl text-center">
                         Aku tuangkan pengalamanku tinggal di China selama <span className="font-bold">5 tahun</span> dan aku rangkum ke dalam guidebook ini! Kamu bisa pelajari Bahasa Mandarin secara mandiri hanya dengan seharga:
                     </p>
                 </div>
@@ -50,7 +50,7 @@ export function ProductOfferCheckout() {
                     disabled={isLoading || isError}
                     onClick={checkoutProduct}
                 >
-                    <p className="text-[0.6rem] md:text-base xl:text-xl font-mulish font-medium">Dapatkan sekarang!</p>
+                    <p className="text-[0.7rem] md:text-base xl:text-xl font-mulish font-medium">Dapatkan sekarang!</p>
                     <FiShoppingCart className="text-xs md:text-xl" />
                 </button>
             </div>

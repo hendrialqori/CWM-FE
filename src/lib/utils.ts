@@ -13,3 +13,11 @@ export const sanitizedNonDigits = (value: string) => {
     const regex = /[^0-9DMY/]/g
     return value.replace(regex, "")
 }
+
+export const scrollInto = (target: string) => {
+    const element = document.querySelector(target)
+    if (!element) {
+        throw new Error("Element not found")
+    }
+    element.scrollIntoView({ behavior: "smooth" })
+}

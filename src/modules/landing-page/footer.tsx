@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image"
-import { FiShoppingCart } from "react-icons/fi"
 import { LuInstagram } from "react-icons/lu";
 import { FaTiktok } from "react-icons/fa6";
 import china_flag from "#/assets/svg/china-flag.svg?url"
 import green_blur_circle_shape from "#/assets/svg/green-blur-circle-shape.svg?url"
+import * as Button from "./footer-button-action"
 
 function Credits() {
     return (
@@ -31,14 +31,7 @@ function Footer() {
         <React.Fragment>
             <footer className="landing-page-container relative flex flex-col md:flex-row justify-between items-center gap-16 md:gap-0 pt-10 pb-10 md:pb-48">
                 <GreenBlurCircleShape />
-                <div className="w-full md:w-6/12 xl:w-4/12 space-y-5 flex items-center md:items-start flex-col" aria-label="left-side">
-                    <h2 className="font-fredoka font-bold text-xs md:text-xl lg:text-3xl leading-[150%] text-center md:text-left">BEST DEAL Beli sekarang ​dan dapatkan GRATIS ​update konten selamanya !</h2>
-                    <button
-                        className="relative w-max bg-black rounded-lg center-flex gap-2 text-white px-4 md:px-6 py-3 z-[2] outline-double active:outline-black">
-                        <p className="text-[0.6rem] md:text-base xl:text-xl font-mulish font-medium">Dapatkan sekarang</p>
-                        <FiShoppingCart className="text-xs md:text-xl" />
-                    </button>
-                </div>
+                <Button.ScrollIntoProduct />
                 <div className="space-y-5" aria-label="right-side">
                     <div className="flex items-center justify-center md:justify-end">
                         <p className="font-fredoka font-semibold text-xs md:text-xl">Chinesewithmeggie</p>

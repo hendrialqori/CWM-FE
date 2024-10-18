@@ -80,7 +80,7 @@ function ProductOffer() {
                             <BsCameraVideo className="text-3xl md:text-5xl text-[#F07B48]" />
                             <h3 className="font-fredoka text-xs md:text-lg xl:text-2xl font-bold text-[#F07B48]">Guiding Video</h3>
                         </div>
-                        <p className="text-center text-[0.6rem] md:text-base font-medium text-[#3A3A3A] font-mulish">
+                        <p className="text-center text-[0.7rem] md:text-base font-medium text-[#3A3A3A] font-mulish">
                             Nggak cuman gambar dan tulisan, di setiap bab Meggie sertakan video yang akan ngebantu kalian untuk lebih memahami cara baca, ejaan, dan nada Bahasa Mandarin.
                         </p>
                     </div>
@@ -89,7 +89,7 @@ function ProductOffer() {
                             <LiaAssistiveListeningSystemsSolid className="text-3xl md:text-5xl text-cwm_blue" />
                             <h3 className="font-fredoka text-xs md:text-lg xl:text-2xl font-bold text-cwm_blue">Listening Pratice</h3>
                         </div>
-                        <p className="text-center text-[0.6rem] md:text-base font-medium text-[#3A3A3A] font-mulish">
+                        <p className="text-center text-[0.7rem] md:text-base font-medium text-[#3A3A3A] font-mulish">
                             Nggak cuman membaca dan menonton, Meggie juga akan kasih kamu latihan untuk mendengarkan. Kalo belajar bahasa penting banget untuk latihan mendengarkan supaya kamu makin terbiasa.
                         </p>
                     </div>
@@ -98,7 +98,7 @@ function ProductOffer() {
                             <MdOutlineQuiz className="text-4xl md:text-5xl text-cwm_green" />
                             <h3 className="font-fredoka text-xs md:text-lg xl:text-2xl font-bold text-cwm_green">Interactive Quiz</h3>
                         </div>
-                        <p className="text-center text-[0.6rem] md:text-base font-medium text-[#3A3A3A] font-mulish">
+                        <p className="text-center text-[0.7rem] md:text-base font-medium text-[#3A3A3A] font-mulish">
                             Meggie juga akan kasih bonus quiz loh supaya kamu bisa latihan secara mandiri tentang pemahaman kamu!
                         </p>
                     </div>

@@ -40,7 +40,7 @@ export function ProductCard(props: Product) {
                 <figcaption className="space-y-0 md:space-y-5 p-4 md:px-5 md:py-6">
                     <div className="space-y-1 md:space-y-2" aria-label="title & discription">
                         <h3 className="font-fredoka font-bold text-[0.65rem] md:text-base lg:text-xl">{props.title}</h3>
-                        <div className="min-h-14 md:min-h-20 text-[#5D5D5D] font-medium text-[0.6rem] md:text-sm lg:text-base">
+                        <div className="min-h-14 md:min-h-20 text-[#5D5D5D] font-medium text-[0.7rem] md:text-sm lg:text-base">
                             <p>{truncateDescription(props?.description ?? "")} {" "}</p>
                             <span
                                 role="button"
@@ -64,7 +64,7 @@ export function ProductCard(props: Product) {
                             )}
                             onClick={checkoutAction("open")}
                         >
-                            <span className="text-[0.6rem] md:text-xs xl:text-sm font-normal md:font-semibold font-mulish">Dapatkan Sekarang</span>
+                            <span className="text-[0.7rem] md:text-xs xl:text-sm font-normal md:font-semibold font-mulish">Dapatkan Sekarang</span>
                             <FiShoppingCart className="text-xs md:text-xl" />
                         </button>
                     </div>
