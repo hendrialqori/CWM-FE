@@ -1,8 +1,8 @@
-export const CLIENT = process.env.NEXT_PUBLIC_CLIENT
+export const SERVER = process.env.NEXT_PUBLIC_SERVER
 
-export const API = CLIENT + "/api"
+export const API = SERVER + "/api/v1"
 
-export const STATIC = CLIENT + "/static"
+export const STATIC = SERVER + "/static"
 
 export const IS_EXPAND_SIDEBAR = false
 
