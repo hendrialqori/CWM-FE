@@ -12,18 +12,18 @@ export function DownloadFile({ encrypted }: { encrypted: string }) {
     function download(blob: Blob, filename: string) {
         // create object url
         const file = URL.createObjectURL(blob)
-        
+
         // Create a link element to trigger the download
         const anchor = document.createElement('a')
         anchor.href = file
         anchor.download = filename
-        
+
         // append achor into document boby
         document.body.appendChild(anchor)
-        
+
         // Trigger the click event on the link to initiate the download
         anchor.click()
-        
+
         // Clean up
         document.body.removeChild(anchor)
 
@@ -41,6 +41,8 @@ export function DownloadFile({ encrypted }: { encrypted: string }) {
                 responseType: "blob"
             })
             const blob = res.data as Blob
+            
+            // eslint-disable-next-line
             //@ts-ignore
             const filename = res.headers.get("X-Filename")
             download(blob, filename)
@@ -49,10 +51,14 @@ export function DownloadFile({ encrypted }: { encrypted: string }) {
             console.error(error)
             router.push("/404")
         }
+
+        // eslint-disable-next-line
     }, [])
 
     React.useEffect(() => {
         requestAPI()
+
+        // eslint-disable-next-line
     }, [])
 
     return (
