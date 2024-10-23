@@ -41,7 +41,7 @@ export type Product = {
     originalPrice: number,
     strikeoutPrice: number,
     isOffer?: boolean,
-    link?: string,
+    zipPath: string;
     description?: string,
     createdAt?: string | Date,
     updatedAt?: string | Date
