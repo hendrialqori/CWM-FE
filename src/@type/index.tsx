@@ -40,9 +40,9 @@ export type Product = {
     image: string,
     originalPrice: number,
     strikeoutPrice: number,
-    isOffer?: boolean,
+    isOffer: boolean,
     zipPath: string;
-    description?: string,
+    description: string,
     createdAt?: string | Date,
     updatedAt?: string | Date
 }
