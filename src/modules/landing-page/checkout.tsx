@@ -15,7 +15,7 @@ import { toast } from "sonner";
 import Portal from "#/components/ui/portal";
 import { CgSpinner } from "react-icons/cg";
 
-type Props = Product & {
+type Props = Omit<Product, "isOffer" | "zipPath" | "description"> & {
     onClose: () => void
 }
 
