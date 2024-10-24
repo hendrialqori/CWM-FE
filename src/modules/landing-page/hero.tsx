@@ -18,11 +18,11 @@ function Header() {
 
 function BlurEffectBackground() {
     return (
-        <div className="absolute z-1 grid grid-cols-2 w-max">
-            <div className="size-72 rounded-full bg-cwm_orange opacity-10 blur-2xl" />
-            <div className="size-72 rounded-full bg-cwm_green opacity-10 blur-2xl -translate-x-28" />
-            <div className="size-72 rounded-full bg-cwm_blue opacity-10 blur-2xl -translate-y-28" />
-            <div className="size-72 rounded-full bg-cwm_yellow opacity-10 blur-2xl -translate-x-28 -translate-y-28" />
+        <div className="absolute z-1 grid grid-cols-2 w-max le">
+            <div className="size-72 rounded-full bg-cwm_orange opacity-15 blur-2xl" />
+            <div className="size-72 rounded-full bg-cwm_green opacity-15 blur-2xl -translate-x-28" />
+            <div className="size-72 rounded-full bg-cwm_blue opacity-15 blur-2xl -translate-y-28" />
+            <div className="size-72 rounded-full bg-cwm_yellow opacity-15 blur-2xl -translate-x-28 -translate-y-28" />
         </div>
     )
 }
@@ -44,12 +44,14 @@ export function Hero() {
     return (
         <section className="bg-[#FEF9F6] pb-20 md:pb-28 relative overflow-hidden">
             <Header />
-            <BlurEffectBackground />
+            <div className="relative landing-page-container">
+                <BlurEffectBackground />
+            </div>
             <div className="landing-page-container grid grid-cols-1 xl:grid-cols-2 gap-16 md:gap-28 xl:gap-14">
                 <div className="space-y-10 mt-0 xl:mt-20 z-[2] mx-auto xl:mx-[0]" aria-label="left-side">
                     <div className="relative space-y-6 z-[2]" aria-label="tagline & descriptions">
                         <div className="bg-white w-full md:w-max rounded-full px-4 py-1 shadow-sm" aria-label="badge">
-                            <p className="text-[#F07B48] text-[0.7rem] text-center md:text-left md:text-base lg:text-xl">
+                            <p className="text-[#F07B48] text-xs md:text-base lg:text-xl text-center md:text-left">
                                 #1 Guide Book Mandarin super praktis dan mudah dipraktekin!
                             </p>
                         </div>
