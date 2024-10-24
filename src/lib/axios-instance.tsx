@@ -6,7 +6,7 @@ export const useInstance = () => {
     const request = (access_token: string) => {
         const instance = axios.create({
             baseURL: API,
-            timeout: 600000,
+            timeout: 10 * 60 * 1000, // 10 minute
             headers: {
                 "Authorization": `Bearer ${access_token}`
             },
