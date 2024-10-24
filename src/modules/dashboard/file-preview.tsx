@@ -10,12 +10,12 @@ type ImagePreviewProps = {
 export function ImagePreview({ image, onChangeImage }: ImagePreviewProps) {
     return (
         <div className="flex items-center gap-3">
-            <div className="relative size-16 shadow-md">
+            <div className="relative size-16 shadow-sm ">
                 <Image
                     src={`${STATIC}/${image}`}
                     width={40}
                     height={40}
-                    className="size-full rounded-lg object-cover"
+                    className="size-full rounded-lg object-cover border border-gray-100"
                     alt="preview-avatar"
                 />
                 <button
