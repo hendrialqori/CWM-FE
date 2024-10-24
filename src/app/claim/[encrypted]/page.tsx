@@ -1,4 +1,4 @@
-import { DownloadFile } from "#/modules/encrypted/download-file";
+import { DownloadFile } from "#/modules/claim/download-file";
 
 type Props = {
     params: {
