@@ -6,11 +6,14 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { toast } from "sonner"
 
+import { CgSpinner } from "react-icons/cg";
+import { VscEye } from "react-icons/vsc";
+import { VscEyeClosed } from "react-icons/vsc";
+
 import {
     Form, FormItem,
     FormFieldError, FormFielDescription
 } from "#/components/ui/form"
-import { CgSpinner } from "react-icons/cg";
 import Input from "#/components/ui/input"
 import Portal from "#/components/ui/portal";
 
@@ -25,6 +28,11 @@ function LoginForm() {
 
     const router = useRouter()
     const [isLoading, setLoading] = React.useState(false)
+    const [showPassword, setShowPassword] = React.useState(false)
+
+    function togglePassword() {
+         setShowPassword((prev) => !prev)
+    }
 
     const submit = handleSubmit(async (state) => {
         const data = {
@@ -73,12 +81,23 @@ function LoginForm() {
                     {() => (
                         <React.Fragment>
                             {/* <FormLabel htmlFor={id}>Email</FormLabel> */}
-                            <Input
-                                {...register("password")}
-                                placeholder="Password"
-                                type="password"
-                                aria-invalid={Boolean(errors.password?.message)}
-                            />
+                            <div className="relative">
+                                <Input
+                                    {...register("password")}
+                                    placeholder="Password"
+                                    type={showPassword ? "text" : "password"}
+                                    aria-invalid={Boolean(errors.password?.message)}
+                                />
+                                <button
+                                    type="button"
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 hover:bg-gray-200 rounded-lg"
+                                    onClick={togglePassword}
+                                >
+                                    {showPassword ?
+                                        <VscEyeClosed className="text-xl" /> :
+                                        <VscEye className="text-xl" />}
+                                </button>
+                            </div>
                             <FormFielDescription>
                                 Enter your password
                             </FormFielDescription>
