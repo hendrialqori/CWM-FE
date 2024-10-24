@@ -12,7 +12,7 @@ import {
 } from "#/components/ui/form"
 import Input from "#/components/ui/input"
 import ButtonSpin from "#/components/ui/button-spin"
-import { ImagePreview, ZipPreview } from "./preview-file"
+import { ImagePreview, ZipPreview } from "./file-preview"
 
 import { useProduct, useProductMutation } from "#/services/product-service"
 import {
@@ -20,6 +20,7 @@ import {
    type ProductFormType
 } from "#/validations/product-form-validation"
 import { cn, sanitizedNonDigits, priceFormat } from "#/lib/utils"
+import { AxiosProgressEvent } from "axios"
 
 type Props = {
    type: "CREATE" | "UPDATE"
@@ -48,6 +49,7 @@ export function ProductForm({ id, type, onClose, }: Props) {
 
    const [changeFile, setChangeFile] = React.useState(initialChangeFile)
    const [preview, setPreview] = React.useState(initialPreview)
+   const [progressValue, setProgressValue] = React.useState(0)
 
    const { register, handleSubmit,
       formState: { errors }, setValue, reset } = useForm<ProductFormType>({
@@ -88,8 +90,13 @@ export function ProductForm({ id, type, onClose, }: Props) {
       return parseToNumber
    }
 
+   function uploadProgress(event: AxiosProgressEvent) {
+      const progress = Number(event.progress?.toFixed(2))
+      setProgressValue(progress)
+   }
+
    function createNewProduct(formData: FormData) {
-      postMutation.mutate({ formData }, {
+      postMutation.mutate({ formData, uploadProgress }, {
          onSuccess: () => {
             reset()
             onClose()
@@ -109,7 +116,12 @@ export function ProductForm({ id, type, onClose, }: Props) {
    }
 
    function updateProduct(formData: FormData) {
-      updateMutation.mutate({ id: Number(id), formData }, {
+      const payload = {
+         id: Number(id),
+         formData,
+         uploadProgress
+      }
+      updateMutation.mutate(payload, {
          onSuccess: () => {
             reset()
             onClose()
@@ -130,13 +142,19 @@ export function ProductForm({ id, type, onClose, }: Props) {
    const submit = handleSubmit((state) => {
 
       const formData = new FormData()
-      formData.append("image", state.image!)
       formData.append("title", state.name)
       formData.append("originalPrice", state.originalPrice)
       formData.append("strikeoutPrice", state.strikeoutPrice)
       formData.append("isOffer", Number(state.isOffer).toString())
-      formData.append("zip", state.zip!)
       formData.append("description", state.description)
+      // append image if exists
+      if (state.image) {
+         formData.append("image", state.image as File)
+      }
+      // append zip file if exist
+      if (state.zip) {
+         formData.append("zip", state.zip as File)
+      }
 
       switch (type) {
          case "CREATE":
@@ -326,10 +344,21 @@ export function ProductForm({ id, type, onClose, }: Props) {
                   disabled={mutationPending}
                >
                   {mutationPending ?
-                     <ButtonSpin /> : buttonLabel[type]}
+                     <Progress progressValue={progressValue} />
+                     : buttonLabel[type]}
                </button>
             </div>
          </Form>
       </div >
+   )
+}
+
+function Progress({ progressValue }: { progressValue: number }) {
+   const percentage = ((progressValue / 1.00) * 100).toFixed() + "%"
+   return (
+      <div className="center-flex gap-2">
+         <ButtonSpin />
+         <p className="text-xs font-normal">upload {percentage}</p>
+      </div>
    )
 }

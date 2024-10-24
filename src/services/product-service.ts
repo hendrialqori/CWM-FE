@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query"
 import { useInstance } from "#/lib/axios-instance"
-import axios, { type AxiosError } from "axios"
+import axios, { type AxiosError, type AxiosProgressEvent } from "axios"
 import type { Product, Success, Error } from "#/@type"
 import { useCredential } from "#/lib/credential"
 import { API } from "#/constants"
@@ -78,19 +78,19 @@ export function useProductMutation() {
     const instance = useInstance()
     const { credential } = useCredential()
 
-    type PostParams = { formData: FormData }
+    type PostParams = { formData: FormData, uploadProgress: (event: AxiosProgressEvent) => void }
     type DeleteParams = { id: number }
     type UpdateParams = PostParams & DeleteParams
 
-    const POST = async ({ formData }: PostParams) => {
+    const POST = async ({ formData, uploadProgress }: PostParams) => {
         const req = await instance(credential?.access_token ?? "")
-            .post("/product/add", formData)
+            .post("/product/add", formData, { onUploadProgress: uploadProgress })
         return req.data
     }
 
-    const UPDATE = async ({ id, formData }: UpdateParams) => {
+    const UPDATE = async ({ id, formData, uploadProgress }: UpdateParams) => {
         const req = await instance(credential?.access_token ?? "")
-            .put(`/product/${id}/update`, formData)
+            .put(`/product/${id}/update`, formData, { onUploadProgress: uploadProgress })
         return req.data
     }
 
